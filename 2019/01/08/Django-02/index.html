@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Python," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Django视图和URL配置">
+<meta name="keywords" content="Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Django_02">
+<meta property="og:url" content="http://yoursite.com/2019/01/08/Django-02/index.html">
+<meta property="og:site_name" content="王较瘦工作站">
+<meta property="og:description" content="Django视图和URL配置">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-01-06T16:30:06.717Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Django_02">
+<meta name="twitter:description" content="Django视图和URL配置">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"remove","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/01/08/Django-02/"/>
+
+
+
+
+
+  <title>Django_02 | 王较瘦工作站</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">王较瘦工作站</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/08/Django-02/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="王较瘦">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="王较瘦工作站">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Django_02</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-08T00:01:55+08:00">
+                2019
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Django视图和URL配置"><a href="#Django视图和URL配置" class="headerlink" title="Django视图和URL配置"></a>Django视图和URL配置</h1><a id="more"></a>
+<h3 id="一、MTV模式"><a href="#一、MTV模式" class="headerlink" title="一、MTV模式"></a>一、MTV模式</h3><h4 id="1、概述"><a href="#1、概述" class="headerlink" title="1、概述"></a>1、概述</h4><p>Django的MTV模式本质上和MVC是一样的，也是为了各组件间保持松耦合关系，只是定义上有些许不同，Django的MTV分别是值：</p>
+<ul>
+<li><strong>M 代表模型（Model）：</strong>负责业务对象和数据库的关系映射(ORM)。</li>
+<li><strong>T 代表模板 (Template)：</strong>负责如何把页面展示给用户(html)。</li>
+<li><strong>V 代表视图（View）</strong>：负责业务逻辑，并在适当时候调用Model和Template。</li>
+</ul>
+<p>Django中提供了View组件用来充当MVC中的C-controller。</p>
+<h4 id="2、view的主要职责"><a href="#2、view的主要职责" class="headerlink" title="2、view的主要职责"></a>2、view的主要职责</h4><ul>
+<li>接收请求</li>
+<li>调度Model，处理业务逻辑</li>
+<li>响应请求</li>
+</ul>
+<h3 id="二、基本开发流程"><a href="#二、基本开发流程" class="headerlink" title="二、基本开发流程"></a>二、基本开发流程</h3><h4 id="1、创建App，定义view中的函数"><a href="#1、创建App，定义view中的函数" class="headerlink" title="1、创建App，定义view中的函数"></a>1、创建App，定义view中的函数</h4><p>在每个App的views.py中，定义一个hello函数</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">hello</span><span class="params">(request)</span>:</span>  <span class="comment"># 必须要有一个request参数 </span></span><br><span class="line">	print(<span class="string">"函数"</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="2、函数返回响应"><a href="#2、函数返回响应" class="headerlink" title="2、函数返回响应"></a>2、函数返回响应</h4><p>每个view必须要有响应，即返回一个HttpResponse</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.shortcuts <span class="keyword">import</span> HttpResponse</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">hello</span><span class="params">(request)</span>:</span></span><br><span class="line">	<span class="keyword">return</span> HttpResponse(<span class="string">"&lt;h1&gt;view基本开发流程&lt;/h1&gt;"</span>)</span><br><span class="line">或者</span><br><span class="line">    <span class="keyword">return</span> render(request,<span class="string">'xxx.html'</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="3、定义访问路径"><a href="#3、定义访问路径" class="headerlink" title="3、定义访问路径"></a>3、定义访问路径</h4><p>在urls.py中，为每个view定义访问路径</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.urls <span class="keyword">import</span> path</span><br><span class="line"><span class="keyword">from</span> view_app.views <span class="keyword">import</span> hello   <span class="comment"># 引入views模块中的hello</span></span><br><span class="line"></span><br><span class="line">urlpatterns = [</span><br><span class="line">	path(<span class="string">"admin/"</span>,admin.site.urls),</span><br><span class="line">	path(<span class="string">"hello/"</span>,hello)            <span class="comment"># 添加view中的配置</span></span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<h4 id="4、启动服务"><a href="#4、启动服务" class="headerlink" title="4、启动服务"></a>4、启动服务</h4><p>django内置了一个供开发使用的  web-服务器，虽然不适合生产环境，但用户开发测试，特别便利。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">python manage.py runserver  <span class="comment">#默认ip和端口   localhost:8000</span></span><br><span class="line">python manage.py runserver <span class="number">8899</span> <span class="comment">#修改默认端口 localhost:8899</span></span><br><span class="line">以上只能允许 本机 访问 localhost/<span class="number">127.0</span><span class="number">.1</span></span><br><span class="line"><span class="comment"># 2. 如果要允许其他电脑也能访问，则需要设置为 本机ip：端口</span></span><br><span class="line">python manage.py runserver <span class="number">192.168</span><span class="number">.0</span><span class="number">.3</span>:<span class="number">6677</span>  <span class="comment"># 其他电脑输入 ip:端口 进行访问即可</span></span><br><span class="line"><span class="comment"># 同时 必须 配置 settings.py文件 allowed_hosts=['自己电脑的ip']  </span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 万全策略 如下</span></span><br><span class="line">python manage.py runserver <span class="number">0.0</span><span class="number">.0</span><span class="number">.0</span>:<span class="number">8000</span> <span class="comment">#修改默认的ip和端口</span></span><br><span class="line">allowed_hosts=[<span class="string">'*'</span>]</span><br></pre></td></tr></table></figure>
+<p><strong>注意</strong>：修改了ip和port后，需要到settings.py中增加一个设置：ALLOWED_HOSTS = [“*”]</p>
+<h4 id="5、访问view"><a href="#5、访问view" class="headerlink" title="5、访问view"></a>5、访问view</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">http://localhost:8000/hello/</span><br><span class="line"></span><br><span class="line">htpp://本机ip:8000/hello/</span><br></pre></td></tr></table></figure>
+<h3 id="三、URL配置"><a href="#三、URL配置" class="headerlink" title="三、URL配置"></a>三、URL配置</h3><p>URL配置的本质是 URL 模式以及要为该 URL 模式调用的视图函数之间的映射表。</p>
+<p>该配置用于告诉 Django，对于这个 URL 调用这段代码，对于那个 URL 调用那段代码。</p>
+<p>例如，当用户访问xxx/hello时，调用视图函数hello()，这个视图函数存在于Python模块文件views.py中。</p>
+<h4 id="1、一般配置"><a href="#1、一般配置" class="headerlink" title="1、一般配置"></a>1、一般配置</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.contrib <span class="keyword">import</span> admin</span><br><span class="line"><span class="keyword">from</span> django.urls <span class="keyword">import</span> path</span><br><span class="line"><span class="keyword">from</span> view_app.views <span class="keyword">import</span> hello</span><br><span class="line">urlpatterns = [</span><br><span class="line">    path(<span class="string">'admin/'</span>, admin.site.urls),</span><br><span class="line">    path(<span class="string">'hello/'</span>,xxx)              <span class="comment"># http://localhost:8000/hello/</span></span><br><span class="line">    path(<span class="string">'hello/world/'</span>,xxx)        <span class="comment"># http://localhost:8000/hello/world/</span></span><br><span class="line">    path(<span class="string">'hello/world/a/b/'</span>,xxx)    <span class="comment"># http://localhost:8000/hello/world/a/b/ </span></span><br><span class="line">    path(<span class="string">'books/tech/1/'</span>,views.book1) <span class="comment"># 书籍分类</span></span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<h4 id="2、正则配置"><a href="#2、正则配置" class="headerlink" title="2、正则配置"></a>2、正则配置</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.contrib <span class="keyword">import</span> admin</span><br><span class="line"><span class="keyword">from</span> django.urls <span class="keyword">import</span> path, re_path   <span class="comment"># 引入 re_path 函数</span></span><br><span class="line"><span class="keyword">from</span> view_app.views <span class="keyword">import</span> hello</span><br><span class="line">urlpatterns = [</span><br><span class="line">	path(<span class="string">'admin/'</span>, admin.site.urls),</span><br><span class="line">	re_path(<span class="string">"hello/\\d&#123;3&#125;/"</span>,hello),   <span class="comment"># localhost:8000/hello/三个整数/</span></span><br><span class="line">	re_path(<span class="string">r"hello/\d&#123;3&#125;/"</span>,hello),   </span><br><span class="line">	re_path(<span class="string">r'hello/\d&#123;2,5&#125;/\w+/'</span>,hello), <span class="comment"># locahost:8000/hello/12415/dfasdf</span></span><br><span class="line">   									<span class="comment"># locahost:8000/hello/12415/abc/def/</span></span><br><span class="line">    re_path(<span class="string">r"hello/[a-d]*/$"</span>),    <span class="comment"># localhost:8000/abchello/abcaa/</span></span><br><span class="line">    re_path(<span class="string">r"^hello/[a-d]*/$"</span>),    <span class="comment"># localhost:8000/hello/abcaa/</span></span><br><span class="line">    re_path(<span class="string">'books/\d&#123;1,2&#125;'</span>,views.books) <span class="comment"># 可以匹配多本书，从而减少多path配置</span></span><br><span class="line">  ]</span><br></pre></td></tr></table></figure>
+<p><strong>注意：</strong> 在使用正则时，<code>^</code> 和<code>$</code> 可以保证精准匹配。 ^表示以什么开头， $ 表示以什么结尾。</p>
+<h4 id="3、URL技巧（path管理）"><a href="#3、URL技巧（path管理）" class="headerlink" title="3、URL技巧（path管理）"></a>3、URL技巧（path管理）</h4><p>一个Project会有很多App，每个App会有很多View函数，如果都在一个urls.py中配置，则项目的管理和维护成本将急剧上升。</p>
+<p>每个App不仅逻辑独立，也希望在url-pattern的配置上也相互隔离。</p>
+<p>因此我们希望每个App都应该有一个独立的url-conf，在每个app下创建一个新的urls.py文件，然后在全局的urls.py中来包含各个app的url-conf。</p>
+<ul>
+<li>在App目录下，新建一个urls.py，并配置自己的url路径：</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.contrib <span class="keyword">import</span> admin</span><br><span class="line"><span class="keyword">from</span> django.urls <span class="keyword">import</span> path,re_path</span><br><span class="line"><span class="keyword">from</span> view_app.views <span class="keyword">import</span> hello</span><br><span class="line"></span><br><span class="line">urlpatterns = [</span><br><span class="line">    path(<span class="string">'hello/'</span>,hello),</span><br><span class="line">    re_path(<span class="string">r'hello/\d&#123;2,5&#125;/\w+/'</span>,hello),</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<ul>
+<li>在全局urls.py中，使用include包含各个app的url-conf：</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.contrib <span class="keyword">import</span> admin</span><br><span class="line"><span class="keyword">from</span> django.urls <span class="keyword">import</span> path,re_path,inlcude</span><br><span class="line"><span class="keyword">from</span> view_app.views <span class="keyword">import</span> hello</span><br><span class="line"></span><br><span class="line">urlpatterns = [</span><br><span class="line">    path(<span class="string">'admin/'</span>, admin.site.urls),</span><br><span class="line">    path(<span class="string">'view_app/'</span>,include(<span class="string">"view_app.urls"</span>)),  <span class="comment"># 导入外部的urls模块</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># view_app为 view_app.urls每一个path路径的前缀</span></span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 如上的两个路径在访问时，都要加上全局路径中的view_app前缀</span></span><br><span class="line"><span class="comment"># http://localhost:8000/view_app/hello</span></span><br><span class="line"><span class="comment"># http://localhost:8000/view_app/hello/1243/abc</span></span><br></pre></td></tr></table></figure>
+<p><strong>补充</strong>：</p>
+<p>​    如果在一个app的众多path中，又有关系逻辑关联紧密的path，可以进一步管理：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.contrib <span class="keyword">import</span> admin</span><br><span class="line"><span class="keyword">from</span> django.urls <span class="keyword">import</span> path,re_path</span><br><span class="line"><span class="keyword">from</span> view_app.views <span class="keyword">import</span> hello</span><br><span class="line"></span><br><span class="line">urlpatterns = [</span><br><span class="line">    path(...),</span><br><span class="line">    ...</span><br><span class="line">    path(<span class="string">'user/vip'</span>,include([</span><br><span class="line">        path(<span class="string">'a/'</span>,view.helloa),   <span class="comment"># http://.../view_app/user/vip/a/</span></span><br><span class="line">        path(<span class="string">'b/'</span>,view.hellob),   <span class="comment"># http://.../view_app/user/vip/b/</span></span><br><span class="line">        path(<span class="string">'c/'</span>,view.helloc),   <span class="comment"># http://.../view_app/user/vip/c/</span></span><br><span class="line">    ])),</span><br><span class="line">    ...</span><br><span class="line">    path(...),</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p><strong>至此：View的url配置则有了管理方案：</strong></p>
+<ol>
+<li>每个App定义自己的urls.py，其中定义自己的url-conf。</li>
+<li>Project的全局urls.py中引入各个App的url-conf,并定义访问前缀，区分、隔离各个App</li>
+<li>App内部的url-conf可以根据逻辑进一步区分、隔离。</li>
+</ol>
+<h3 id="四、命名路径"><a href="#四、命名路径" class="headerlink" title="四、命名路径"></a>四、命名路径</h3><h4 id="1、基本使用"><a href="#1、基本使用" class="headerlink" title="1、基本使用"></a>1、基本使用</h4><p><strong>语法：</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">path(<span class="string">"xxx/&lt;参数名1&gt;/&lt;参数名2&gt;/../"</span>, xxx)    <span class="comment"># &lt;参数名1&gt; 此种路径可以匹配任何内容</span></span><br></pre></td></tr></table></figure>
+<p><strong>示例：</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">path(<span class="string">"hello/&lt;name&gt;/&lt;age&gt;/"</span>,views.hello)       <span class="comment"># localhost:8000/hello/polly/18/</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">hello</span><span class="params">(request，name,age)</span>:</span></span><br><span class="line">    print(name,age)</span><br><span class="line">    ...</span><br></pre></td></tr></table></figure>
+<p><strong>注意：</strong>有了命名路径，view的函数中必须有对应的接收参数，并且参数名字必须一致。</p>
+<h4 id="2、命名路径转换器"><a href="#2、命名路径转换器" class="headerlink" title="2、命名路径转换器"></a>2、命名路径转换器</h4><p>非正则命名路径中可以使用转换器，以约束每个路径捕获到的数据的类型，默认数据类型为 字符串。</p>
+<ul>
+<li>int：接收整数</li>
+<li>str：字符串（了解，默认为 字符串）</li>
+<li>path：可以接收包含”/“的路径（了解）</li>
+<li>slug：接收【数字、字母、下划线、中划线】四种字符（了解）</li>
+</ul>
+<p>如果路径上的值不符合转换器类型，则访问不到对应的view函数（404页面）</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">path(<span class="string">"hello/&lt;int: age&gt;/&lt;str: name&gt;/&lt;slug:nick&gt;"</span>,hello)</span><br><span class="line"></span><br><span class="line"><span class="comment"># http://localhost:8000/hello/18/lilei/ab_c12-def/</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">hello</span><span class="params">(request,age,name,nick)</span>:</span></span><br><span class="line">    print(age,name,nick)</span><br><span class="line">    <span class="keyword">return</span> HttpResponse(<span class="string">'Done!'</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="3、正则命名路径"><a href="#3、正则命名路径" class="headerlink" title="3、正则命名路径"></a>3、正则命名路径</h4><h5 id="1、正则路径匹配且捕获数据"><a href="#1、正则路径匹配且捕获数据" class="headerlink" title="1、正则路径匹配且捕获数据"></a>1、正则路径匹配且捕获数据</h5><p>使用正则的“捕获组”的格式（regex）也可捕获到url路径中的数据。</p>
+<p>即用括号包围的正则，就是一个捕获组，不仅匹配路径，还可以捕获到数据。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">re_path(<span class="string">"hello/(\d&#123;3&#125;)/"</span>,hello1)                    <span class="comment"># http://localhost:8000/hello/125/</span></span><br><span class="line">re_path(<span class="string">"hello2/(d&#123;2,5&#125;)/(\w+)/"</span>,hello2)		   <span class="comment"># http://localhost:8000/hello2/43/abfa2_ad</span></span><br><span class="line">re_path(<span class="string">"hello3/([a-d]*)/"</span>,hello3)			       <span class="comment"># http://localhost:8000/hello3/abcd/</span></span><br><span class="line">re_path(<span class="string">"^hello4/([a-d]*)/$"</span>,hello4)			   <span class="comment"># http://localhost:8000/hello4/abc</span></span><br><span class="line">											    <span class="comment"># 注意hello3与hello4的区别</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">hello1</span><span class="params">(request,a)</span>:</span></span><br><span class="line">    print(a)</span><br><span class="line">    <span class="keyword">return</span> HttpResponse(<span class="string">"Done!"</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">hello2</span><span class="params">(request,a,b)</span>:</span></span><br><span class="line">    print(a,b)</span><br><span class="line">    <span class="keyword">return</span> HttpResponse(<span class="string">"Done!"</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">hello3</span><span class="params">(request,a)</span>:</span></span><br><span class="line">    print(a)</span><br><span class="line">    <span class="keyword">return</span> HttpResponse(<span class="string">"Done!"</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">hello4</span><span class="params">(request,a)</span>:</span></span><br><span class="line">    print(a)</span><br><span class="line">    <span class="keyword">return</span> HttpResponse(<span class="string">"Done!"</span>)</span><br></pre></td></tr></table></figure>
+<h5 id="2、正则命名路径且捕获数据"><a href="#2、正则命名路径且捕获数据" class="headerlink" title="2、正则命名路径且捕获数据"></a>2、正则命名路径且捕获数据</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">re_path(&quot;hello/(?P&lt;age&gt;\d&#123;3&#125;)/&quot;,hello1)             # http://localhost:8000/hello/125/</span><br><span class="line">re_path(&quot;hello2/(?P&lt;age&gt;d&#123;2,5&#125;)/(?P&lt;name&gt;\w+)/&quot;,hello2)	 # http://localhost:8000/hello2/43/ab_f</span><br><span class="line">re_path(&quot;hello3/(?P&lt;nick&gt;[a-d]*)/&quot;,hello3)		   # http://localhost:8000/hello3/abcdef/</span><br><span class="line">re_path(&quot;^hello4/(?P&lt;nick&gt;[a-d]*)/$&quot;,hello4)	   # http://localhost:8000/hello4/abc</span><br><span class="line">											    # 注意hello3与hello4的区别</span><br><span class="line">def hello(request,age):</span><br><span class="line">    print(age)</span><br><span class="line">    return HttpResponse(&quot;Done!&quot;)</span><br><span class="line"></span><br><span class="line">def hello2(request,age,name):</span><br><span class="line">    print(age,name</span><br><span class="line">    return HttpResponse(&quot;Done!&quot;)</span><br><span class="line"></span><br><span class="line">def hello3(request,nick)</span><br><span class="line">    print(nick)</span><br><span class="line">    return HttpResponse(&quot;Done!&quot;)</span><br><span class="line"></span><br><span class="line">def hello4(request,nick)</span><br><span class="line">    print(nick)</span><br><span class="line">    return HttpResponse(&quot;Done!&quot;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">总结：</span><br><span class="line"><span class="comment"># 目的：捕获url中的参数值</span></span><br><span class="line"><span class="comment"># 1. 基本的命名路径    path("xxx/&lt;name&gt;/&lt;age&gt;/",xxx)   可以加转换器：限制参数的类型和取值范围</span></span><br><span class="line"><span class="comment">#                     def hello(request,name,age)  视图函数中的参数名要和path中的名字保持一致</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 2. 正则路径捕获参数  re_path("xxx/(\d&#123;3&#125;)",xxx)</span></span><br><span class="line"><span class="comment">#                    def hello(request,a)         视图函数中的参数名字无要求</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 3. 正则命名路径且捕获参数    re_path("xxx/(?P&lt;id&gt;\d&#123;3&#125;/",xxx)</span></span><br><span class="line"><span class="comment">#                           def hello(request,id)   视图函数中的参数名要和path中的名字保持一致</span></span><br></pre></td></tr></table></figure>
+<h3 id="五、请求处理"><a href="#五、请求处理" class="headerlink" title="五、请求处理"></a>五、请求处理</h3><p>（1）用户发送请求  （2）服务器接收请求 （3）服务器处理请求并返回响应</p>
+<h4 id="1、发送请求的方式"><a href="#1、发送请求的方式" class="headerlink" title="1、发送请求的方式"></a>1、发送请求的方式</h4><p>在Web中发送页面请求的方式一般有三种：</p>
+<ul>
+<li><code>&lt;a href=&quot;xxx&quot;&gt;</code>            超链接</li>
+<li><code>location.href=&quot;xxx&quot;</code>       <button onclick="function"></button></li>
+<li><code>&lt;form action=&quot;xxx&quot;&gt;</code>  表单         </li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">title</span>&gt;</span>发送请求的三种方式<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"> </span></span><br><span class="line"><span class="undefined">		function myclick() &#123;</span></span><br><span class="line"><span class="undefined">			location.href = "http://localhost:8000/hello/123"</span></span><br><span class="line"><span class="undefined">		&#125;</span></span><br><span class="line"><span class="undefined">	</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"http://e.dangdang.com/products/1900470914.html"</span>&gt;</span>打开<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"http://e.dangdang.com/products/1900671721.html"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">name</span>=<span class="string">""</span> <span class="attr">value</span>=<span class="string">"提交"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"button"</span> <span class="attr">name</span>=<span class="string">""</span> <span class="attr">value</span>=<span class="string">"点我"</span> <span class="attr">onclick</span>=<span class="string">"myclick()"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="2、接收请求参数"><a href="#2、接收请求参数" class="headerlink" title="2、接收请求参数"></a>2、接收请求参数</h4><p>客户端（浏览器）访问服务器时，需要向服务器传递数据（请求参数）。</p>
+<ul>
+<li><strong>方式一：接收路径中的参数</strong><ul>
+<li>命名路径          命名路径参数传递 接收过程</li>
+<li>正则路径</li>
+<li>正则命名路径</li>
+</ul>
+</li>
+<li><strong>方式二：常规的参数接收，通过request对象接收</strong><ul>
+<li>前端发送参数 xxx/?name=li&amp;pwd=123456     键值对形式</li>
+<li>后端接收参数 <ul>
+<li>request.GET[‘name’]   字典访问方式获取</li>
+<li>request.GET[‘pwd’]</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="3、超链接传参"><a href="#3、超链接传参" class="headerlink" title="3、超链接传参"></a>3、超链接传参</h4><p>超链接传参格式： <code>url/?key=value&amp;key2=value2</code>       </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;a href="http://localhost:8000/hello5/?id=115&amp;name=polly"&gt;超链接传参&lt;/a&gt;  # html超链接</span><br><span class="line"></span><br><span class="line">path(<span class="string">'hello5/'</span>,views.hello5)                        <span class="comment"># url配置</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">hello5</span><span class="params">(request)</span>:</span>                                <span class="comment"># view函数</span></span><br><span class="line">    <span class="keyword">return</span> HttpResponse(<span class="string">"Done"</span>)</span><br></pre></td></tr></table></figure>
+<p>附：location.href传参与超链接传参类似。</p>
+<h4 id="4、表单传参"><a href="#4、表单传参" class="headerlink" title="4、表单传参"></a>4、表单传参</h4><p>表单中的控件，name属性值为视图函数中的参数名，value属性值为参数值。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"http://localhost:8000/hello6/"</span> <span class="attr">method</span>=<span class="string">"get"</span>&gt;</span></span><br><span class="line">	用户名：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"name"</span> &gt;</span></span><br><span class="line">	密码：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"password"</span> <span class="attr">name</span>=<span class="string">"pwd"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">name</span>=<span class="string">""</span> <span class="attr">value</span>=<span class="string">"提交"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h5 id="5-2-接收post请求参数"><a href="#5-2-接收post请求参数" class="headerlink" title="5.2 接收post请求参数"></a>5.2 接收post请求参数</h5><ul>
+<li><p>request.POST[‘参数名’]   </p>
+</li>
+<li><p>request.POST.get(“参数名”)</p>
+<ul>
+<li><p>注意：直接使用POST接收，会出现403. 解决：使用 </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% csrf_token %&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>注意：通过模板渲染 html页面，否则不是django项目</p>
+</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"http://localhost:8000/hello6/"</span> <span class="attr">method</span>=<span class="string">"post"</span>&gt;</span></span><br><span class="line">    &#123;% csrf_token %&#125;</span><br><span class="line">	用户名：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"name"</span> &gt;</span></span><br><span class="line">	密码：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"password"</span> <span class="attr">name</span>=<span class="string">"pwd"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">name</span>=<span class="string">""</span> <span class="attr">value</span>=<span class="string">"提交"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">path(<span class="string">'hello6/'</span>, views.hello6)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">hello6</span><span class="params">(request)</span>:</span></span><br><span class="line">    print(request.POST[<span class="string">'name'</span>],request.POST[<span class="string">'pwd'</span>])</span><br><span class="line">    <span class="keyword">return</span> HttpResponse(<span class="string">"Done"</span>)</span><br></pre></td></tr></table></figure>
+<p><strong>注意：</strong></p>
+<ul>
+<li><strong>GET[‘age’] 如果没有键则报错</strong></li>
+<li><strong>GET.get(‘age’) 如果没有键返回None</strong></li>
+</ul>
+<h4 id="6、Get和Post请求区别"><a href="#6、Get和Post请求区别" class="headerlink" title="6、Get和Post请求区别"></a>6、Get和Post请求区别</h4><ul>
+<li>POST安全性好于GET，GET中的请求参数直接暴露于url上；传递密码等敏感数据时，不使用GET。</li>
+<li>GET对数据长度有限制,URL 的最大长度是 2048 个字符，POST无限制。</li>
+<li>HTTP的语义中GET请求用来查询数据，POST用来提交数据(注册，登陆)</li>
+<li>GET只允许 ASCII 字符(原则上不允许中文，实际浏览器会对中文进行编码)。POST可以传递各种数据，二进制也可以。</li>
+<li>GET可以缓存，POST不能缓存</li>
+</ul>
+<p><strong>实用技巧：请求中有隐私数据(如密码) 或 有较多数据时不建议使用Get</strong></p>
+<p><strong>实用场景：Get常用来做查询和删除请求，Post常用来做增加和更新请求</strong></p>
+<h4 id="7、接收多值参数"><a href="#7、接收多值参数" class="headerlink" title="7、接收多值参数"></a>7、接收多值参数</h4><ul>
+<li>当请求参数中同一个key上有多个值，View中如何接收？</li>
+</ul>
+<p><code>http://localhost:8000/test1/user/vip/a/?age=18&amp;age=19&amp;name=polly</code>   </p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"http://localhost:8000/hello7"</span> <span class="attr">method</span>=<span class="string">"GET"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">name</span>=<span class="string">"hobby"</span> <span class="attr">value</span>=<span class="string">"football"</span>/&gt;</span>足球</span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">name</span>=<span class="string">"hobby"</span> <span class="attr">value</span>=<span class="string">"basketball"</span>/&gt;</span>篮球</span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">name</span>=<span class="string">"hobby"</span> <span class="attr">value</span>=<span class="string">"volleyball"</span>/&gt;</span>排球</span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"提交"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>hobby有多个值，GET[‘hobby’]得到的值是什么 ？</p>
+<p><code>http://localhost:8000/hello7/?hobby=football&amp;hobby=basketball&amp;hobby=volleyball</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">hello7</span><span class="params">(request)</span>:</span></span><br><span class="line">    print(request.GET[<span class="string">'hobby'</span>])   <span class="comment">#将只会得到最后一个值</span></span><br><span class="line">    <span class="keyword">return</span> HttpResponse(<span class="string">""</span>)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>使用GET.getlist(“xxx”)或POST.getlist(“xxx”)来接收多个相同key的值：</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">hello7</span><span class="params">(request)</span>:</span></span><br><span class="line">    print(request.GET.getlist(<span class="string">'hobby'</span>))</span><br><span class="line">    <span class="keyword">return</span> HttpResponse(<span class="string">""</span>)</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Python/" rel="tag"># Python</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/01/07/Django-01/" rel="next" title="Django_01">
+                <i class="fa fa-chevron-left"></i> Django_01
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/01/09/Django-03/" rel="prev" title="Django_03">
+                Django_03 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        ﻿<div class="copyright">&copy; 
+<span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">王较瘦</span>
+
+  
+  
+  
+</div>
+
+
+	<div class="powered-by"> <i class="fa fa-user-md"></i>
+	</div>
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+<div id="hexo-helper-live2d">
+  <canvas id="live2dcanvas" width="150" height="300"></canvas>
+</div>
+<style>
+  #live2dcanvas{
+    position: fixed;
+    width: 150px;
+    height: 300px;
+    opacity:0.7;
+    right: 0px;
+    z-index: 999;
+    pointer-events: none;
+    bottom: -20px;
+  }
+</style>
+<script type="text/javascript" src="/live2d/device.min.js"></script>
+<script type="text/javascript">
+const loadScript = function loadScript(c,b){var a=document.createElement("script");a.type="text/javascript";"undefined"!=typeof b&&(a.readyState?a.onreadystatechange=function(){if("loaded"==a.readyState||"complete"==a.readyState)a.onreadystatechange=null,b()}:a.onload=function(){b()});a.src=c;document.body.appendChild(a)};
+(function(){
+  if((typeof(device) != 'undefined') && (device.mobile())){
+    document.getElementById("live2dcanvas").style.width = '75px';
+    document.getElementById("live2dcanvas").style.height = '150px';
+  }else
+    if (typeof(device) === 'undefined') console.error('Cannot find current-device script.');
+  loadScript("/live2d/script.js", function(){loadlive2d("live2dcanvas", "/live2d/assets/hijiki.model.json", 0.5);});
+})();
+</script>
+
+</body>
+</html>

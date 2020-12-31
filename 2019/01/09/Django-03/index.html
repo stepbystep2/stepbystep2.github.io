@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Python," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="模型_01">
+<meta name="keywords" content="Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Django_03">
+<meta property="og:url" content="http://yoursite.com/2019/01/09/Django-03/index.html">
+<meta property="og:site_name" content="王较瘦工作站">
+<meta property="og:description" content="模型_01">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="d:/wang/Documents/pythhon笔记/Django-模型_01.assets/1545792451008.png">
+<meta property="og:updated_time" content="2020-01-06T16:33:53.764Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Django_03">
+<meta name="twitter:description" content="模型_01">
+<meta name="twitter:image" content="d:/wang/Documents/pythhon笔记/Django-模型_01.assets/1545792451008.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"remove","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/01/09/Django-03/"/>
+
+
+
+
+
+  <title>Django_03 | 王较瘦工作站</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">王较瘦工作站</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/09/Django-03/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="王较瘦">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="王较瘦工作站">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Django_03</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-09T00:31:05+08:00">
+                2019
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="模型-01"><a href="#模型-01" class="headerlink" title="模型_01"></a>模型_01</h1><a id="more"></a>
+<h3 id="一、模型简介"><a href="#一、模型简介" class="headerlink" title="一、模型简介"></a>一、模型简介</h3><h4 id="1、模型概述"><a href="#1、模型概述" class="headerlink" title="1、模型概述"></a>1、模型概述</h4><ul>
+<li><strong>模型（Models）：</strong>用来构建和操作你的web应用中的数据，模型是你的数据的唯一的、权威的信息源。它包含你所储存数据的必要字段和行为。通常，每个模型对应数据库中唯一的一张表。 </li>
+<li><strong>模板(templates)</strong>：模板层提供了设计友好的语法来展示信息给用户。使用模板方法可以动态地生成HTML。模板包含所需HTML 输出的静态部分，以及一些特殊的语法，描述如何将动态内容插入。 </li>
+<li><strong>视图（views）</strong>：用于封装负责处理用户请求及返回响应的逻辑。视图可以看作是前端与数据库的中间人，它会将前端想要的数据从数据库中读出来给前端。也会将用户要想保存的数据写到数据库。 </li>
+</ul>
+<h4 id="2、ORM"><a href="#2、ORM" class="headerlink" title="2、ORM"></a>2、ORM</h4><h5 id="2-1-ORM概念"><a href="#2-1-ORM概念" class="headerlink" title="2.1 ORM概念"></a>2.1 ORM概念</h5><p>ORM是对象关系映射(Object Relational Mapping)的缩写，由于程序设计者更多采用面向对象的思想，而数据库则以关系作为其基础，ORM的作用使得我们可以采用面向对象的思路来设计数据库，使数据库设计更加简单。 </p>
+<h5 id="2-2-ORM的优势"><a href="#2-2-ORM的优势" class="headerlink" title="2.2 ORM的优势"></a>2.2 ORM的优势</h5><p>Django的ORM操作本质上会根据类与对象 对接数据库引擎，翻译成对应的sql语句；所有使用Django开发的项目无需关心程序底层使用的是MySQL、Oracle、sqlite….，如果数据库迁移，只需要更换Django的数据库引擎配置即可。</p>
+<h3 id="二、Model层开发过程"><a href="#二、Model层开发过程" class="headerlink" title="二、Model层开发过程"></a>二、Model层开发过程</h3><h4 id="1、安装数据库驱动"><a href="#1、安装数据库驱动" class="headerlink" title="1、安装数据库驱动"></a>1、安装数据库驱动</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install mysqlclient</span><br></pre></td></tr></table></figure>
+<h4 id="2、数据库配置"><a href="#2、数据库配置" class="headerlink" title="2、数据库配置"></a>2、数据库配置</h4><p>在项目的 settings.py 文件中找到 DATABASES 配置项，将其信息修改为： </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">DATABASES = &#123;</span><br><span class="line">    <span class="string">'default'</span>: &#123;</span><br><span class="line">        <span class="string">'ENGINE'</span>: <span class="string">'django.db.backends.mysql'</span>,     <span class="comment"># 数据库引擎</span></span><br><span class="line">        <span class="string">'NAME'</span>: <span class="string">'test'</span>,                           <span class="comment"># 数据库名</span></span><br><span class="line">        <span class="string">'USER'</span>: <span class="string">'root'</span>,						    <span class="comment"># 用户名</span></span><br><span class="line">        <span class="string">'PASSWORD'</span>: <span class="string">'123456'</span>,					<span class="comment"># 密码</span></span><br><span class="line">        <span class="string">'HOST'</span>:<span class="string">'localhost'</span>,						<span class="comment"># 主机ip</span></span><br><span class="line">        <span class="string">'PORT'</span>:<span class="number">3306</span>,						    <span class="comment"># 端口号</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="3、创建App，安装App"><a href="#3、创建App，安装App" class="headerlink" title="3、创建App，安装App"></a>3、创建App，安装App</h4><ul>
+<li>Django规定，如果要使用模型，必须要创建一个app：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python manage.py startapp testapp</span><br></pre></td></tr></table></figure>
+<ul>
+<li>安装App  在settings.py文件中</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">INSTALLED_APPS = [</span><br><span class="line">    <span class="string">'django.contrib.admin'</span>,</span><br><span class="line">    <span class="string">'django.contrib.auth'</span>,</span><br><span class="line">    <span class="string">'django.contrib.contenttypes'</span>,</span><br><span class="line">    <span class="string">'django.contrib.sessions'</span>,</span><br><span class="line">    <span class="string">'django.contrib.messages'</span>,</span><br><span class="line">    <span class="string">'django.contrib.staticfiles'</span>,</span><br><span class="line">    <span class="string">'testapp'</span>,                       <span class="comment"># 创建的app名</span></span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<ul>
+<li>修改时区等（暂时跳过）</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">LANGUAGE_CODE = <span class="string">'zh-hans'</span>      <span class="comment"># 让后台页面支持中文           </span></span><br><span class="line">TIME_ZONE = <span class="string">'Asia/Shanghai'</span>    <span class="comment"># 将时区改为东八区</span></span><br></pre></td></tr></table></figure>
+<p><img src="D:/wang/Documents/pythhon笔记/Django-模型_01.assets/1545792451008.png" alt="1545792451008">     </p>
+<h4 id="4、定义Model类"><a href="#4、定义Model类" class="headerlink" title="4、定义Model类"></a>4、定义Model类</h4><p>在App目录下的Models.py文件中，添加Model类：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.db <span class="keyword">import</span> models</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span><span class="params">(models.Model)</span>:</span>                           <span class="comment"># 一个Model类将对应数据库中的一个表  -- 基类</span></span><br><span class="line">    name = models.CharField(max_length=<span class="number">30</span>)</span><br><span class="line">    age = models.IntegerField()</span><br><span class="line">    salary = models.DecimalField(max_digits=<span class="number">7</span>,decimal_places=<span class="number">2</span>)</span><br><span class="line">    birthday = models.DateTimeField()</span><br></pre></td></tr></table></figure>
+<h4 id="5、生成移植文件记录"><a href="#5、生成移植文件记录" class="headerlink" title="5、生成移植文件记录"></a>5、生成移植文件记录</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python manage.py makemigrations            <span class="comment"># 生成迁移记录</span></span><br></pre></td></tr></table></figure>
+<p>补充：<code>python manage.py sqlmigrate modelapp 0001</code> 查看对应的sql语句</p>
+<h4 id="6、执行移植操作"><a href="#6、执行移植操作" class="headerlink" title="6、执行移植操作"></a>6、执行移植操作</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 manage.py migrate                   <span class="comment"># 执行迁移操作--应用到数据库</span></span><br></pre></td></tr></table></figure>
+<h4 id="7、测试Model"><a href="#7、测试Model" class="headerlink" title="7、测试Model"></a>7、测试Model</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">-- views.py -- </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">testdb</span><span class="params">(request)</span>:</span></span><br><span class="line">    userlist = User.objects.all()</span><br><span class="line">    str = <span class="string">''</span></span><br><span class="line">    <span class="keyword">for</span> user <span class="keyword">in</span> userlist:</span><br><span class="line">        str += (user.name+<span class="string">','</span>)</span><br><span class="line">    <span class="keyword">return</span> HttpResponse(<span class="string">'查询结果：'</span>+str)</span><br></pre></td></tr></table></figure>
+<h3 id="三、模型字段"><a href="#三、模型字段" class="headerlink" title="三、模型字段"></a>三、模型字段</h3><h4 id="1、常用字段类型"><a href="#1、常用字段类型" class="headerlink" title="1、常用字段类型"></a>1、常用字段类型</h4><table>
+<thead>
+<tr>
+<th>字段类型</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AutoField</td>
+<td>一般不用直接使用，Model中默认的主键类型。<br>Django默认给每个Model一个主键字段(如果没有自己定义的话)</td>
+</tr>
+<tr>
+<td>SmallIntegerField</td>
+<td>2字节  smallint</td>
+</tr>
+<tr>
+<td>IntegerField</td>
+<td>4字节  int</td>
+</tr>
+<tr>
+<td>BigIntegerField</td>
+<td>8字节   bigint</td>
+</tr>
+<tr>
+<td>FloatField</td>
+<td>double</td>
+</tr>
+<tr>
+<td>DecimalField</td>
+<td>DecimalField(max_digits=5,decimal_places=2)  decimal。  <br>必填：max_digits=5 #共有几位数<br>必填：decimal_places=2#其中小数位占几位</td>
+</tr>
+<tr>
+<td>CharField</td>
+<td>CharField(max_length=20) max_length是必填属性 == varchar(20)</td>
+</tr>
+<tr>
+<td>TextField</td>
+<td>longtext</td>
+</tr>
+<tr>
+<td>BooleanField</td>
+<td>接收“True/False”  tinyint</td>
+</tr>
+<tr>
+<td>NullBooleanField</td>
+<td>接收“True/False/None”  tinyint</td>
+</tr>
+<tr>
+<td>DateTimeField</td>
+<td>datetime</td>
+</tr>
+<tr>
+<td>DateField</td>
+<td>可选：auto_now=true 可做修改时间记录<br>可选：auto_now_add=True 可做首次添加时间<br>注意：以上两属性之一指定后，该字段不允许被编辑</td>
+</tr>
+<tr>
+<td>TimeField</td>
+<td>time</td>
+</tr>
+<tr>
+<td>ForeignKey</td>
+<td>ForeignKey(to=关系对方的类或类名或‘self’，on_delete=级联选项)</td>
+</tr>
+<tr>
+<td>OneToOneFiled</td>
+<td>OneToOneFiled(to=关系对方的类或类名或‘self’，on_delete=级联选项)</td>
+</tr>
+<tr>
+<td>ManyToManyFiled</td>
+<td>ManyToManyFiled(to=关系对方的类或类名或‘self’)</td>
+</tr>
+</tbody>
+</table>
+<h4 id="2、字段参数"><a href="#2、字段参数" class="headerlink" title="2、字段参数"></a>2、字段参数</h4><ul>
+<li><p>null   默认False,不能为空</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">name = models.CharField(max_length=<span class="number">20</span>,null=<span class="keyword">True</span>) <span class="comment">#可为空</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>default  定义默认值</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">name = models.CharField(max_length=<span class="number">20</span>,default=<span class="string">"lilei"</span>)</span><br><span class="line">age = models.IntegerField(default=<span class="number">18</span>)</span><br><span class="line">birthday = models.DateTimeField(default=<span class="string">"2018-12-12"</span>)</span><br></pre></td></tr></table></figure>
+<p>默认值不会作用在数据库上，而是django自己的约定，通过Model.save()时，会使用默认值</p>
+</li>
+<li><p>primary_key</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">id = models.AutoFiled(primary_key=<span class="keyword">True</span>) <span class="comment">#默认追加，不用自己定义</span></span><br><span class="line">id = models.CharField(primary_key=<span class="keyword">True</span>,max_length=<span class="number">32</span>)<span class="comment">#如果需要字符串类型的ID可以自己定义</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>unique  列是否唯一</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">name = models.CharField(max_length=<span class="number">20</span>,unique=<span class="keyword">True</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>db_column    自定义列名，默认和field同名 </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">name = models.CharField(max_length=<span class="number">20</span>,db_column=<span class="string">"name9"</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>db_index   是否在列上建立索引</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">name = models.CharField(max_length=<span class="number">20</span>,db_index=<span class="keyword">True</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>blank  默认Flase，用于前端页面的form验证（了解）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">note = models.CharField(max_length=20,blank=True)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="3、元数据Meta"><a href="#3、元数据Meta" class="headerlink" title="3、元数据Meta"></a>3、元数据Meta</h4><p>模型的元数据，指的是“除了字段外的所有内容”，例如排序方式、数据库表名、人类可读的单数或者复数名等等。 </p>
+<ul>
+<li>db_table = ‘xxx’ 设置表名（修改django默认生成的表名）</li>
+<li>unique_together = ((‘列名1’,’列名2’),(…))  设置联合唯一约束</li>
+<li>ordering = [‘列名1’]  或 [‘列名1’,’列名2’] </li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyModel</span><span class="params">(models.Model)</span>:</span></span><br><span class="line">   salary = models.DecimalField(...)</span><br><span class="line">   .....</span><br><span class="line">   age = models.xxx</span><br><span class="line">   name = models.xxx</span><br><span class="line">   <span class="class"><span class="keyword">class</span> <span class="title">Meta</span>:</span>  </span><br><span class="line">        unique_together = ((<span class="string">"salary"</span>, <span class="string">"salary2"</span>),(<span class="string">"age"</span>,<span class="string">"age2"</span>,<span class="string">"age3"</span>))</span><br><span class="line">        db_table=<span class="string">"my_user"</span></span><br><span class="line">        ordering=[<span class="string">'-age'</span>,<span class="string">'name'</span>] <span class="comment">#根据age降序排列，如果age相同，再按照name升序排列</span></span><br></pre></td></tr></table></figure>
+<h3 id="四、Model-API增删改"><a href="#四、Model-API增删改" class="headerlink" title="四、Model-API增删改"></a>四、Model-API增删改</h3><h4 id="1、创建对象（添加数据）"><a href="#1、创建对象（添加数据）" class="headerlink" title="1、创建对象（添加数据）"></a>1、创建对象（添加数据）</h4><p>在Terminal中执行<code>python manage.py shell</code>进入python解释器：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> testapp.models <span class="keyword">import</span> User</span><br><span class="line"></span><br><span class="line">user = User(name=<span class="string">'lilei'</span>,age=<span class="number">18</span>,salary=<span class="number">20000</span>,birthdayday=<span class="string">'1985-7-12 10:10:08'</span>) <span class="comment">#创建对象</span></span><br><span class="line">user.save()  <span class="comment"># 向数据库插入一条数据</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 或者</span></span><br><span class="line"><span class="comment"># 创建对象并保存数据，一步完成</span></span><br><span class="line">user= User.objects.create(name=<span class="string">'lilei'</span>,age=<span class="number">18</span>,salary=<span class="number">20000</span>,birthdayday=<span class="string">'1985-7-12 10:10:08'</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="2、删除数据"><a href="#2、删除数据" class="headerlink" title="2、删除数据"></a>2、删除数据</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">user = User.objects.get(pk=<span class="number">3</span>) / (id=<span class="number">3</span>)</span><br><span class="line">user.delete()   </span><br><span class="line"><span class="comment"># User.objects.get(pk=3).delete()</span></span><br><span class="line"><span class="comment"># 只删除id=3的数据 函数链 等价 user = User.objects.get(pk=3) user.delete() </span></span><br><span class="line"></span><br><span class="line">User.objects.all().delete()     <span class="comment"># 删除所有数据</span></span><br></pre></td></tr></table></figure>
+<h4 id="3、修改数据"><a href="#3、修改数据" class="headerlink" title="3、修改数据"></a>3、修改数据</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">user = User.objects.get(age=<span class="number">18</span>)</span><br><span class="line">user.name=<span class="string">"new_name"</span></span><br><span class="line">user.save()  <span class="comment"># 注意：修改后要save()</span></span><br></pre></td></tr></table></figure>
+<h3 id="五、查询操作"><a href="#五、查询操作" class="headerlink" title="五、查询操作"></a>五、查询操作</h3><h4 id="1、QuerySet"><a href="#1、QuerySet" class="headerlink" title="1、QuerySet"></a>1、QuerySet</h4><p>每个Model类都有一个默认的manager实例，名为objects。</p>
+<p>对数据库中对象的检索， 是通过 model Manager 来构造一个 QuerySet 对象来实现。</p>
+<p> Model Manager QuerySet</p>
+<ul>
+<li>QuerySet 对象是一个model 类对应的实例集合，是一个可遍历的结构  。</li>
+<li>manger 对象是可理解为对QuerySet进行管理的一个类，可以通过manager的一些方法获取到QuerySet集合</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">User.objects <span class="comment"># 返回的是manager实例对象。由 Manager() 创建，用来进行查询</span></span><br><span class="line"></span><br><span class="line">User.objects.all() <span class="comment"># 返回的是一个QuerySet信息，它是通过manager的all()方法来返回的</span></span><br></pre></td></tr></table></figure>
+<h4 id="2、查询方法"><a href="#2、查询方法" class="headerlink" title="2、查询方法"></a>2、查询方法</h4><p>如下所有查询方法都是<strong>QuerySet</strong>实现的，只不过每个Model中都会有一个Manager,Manager接受到如下方法的调用时，会去调用<strong>QuerySet</strong>的方法，最终实现数据查询。</p>
+<p>所以<strong>QuerySet</strong>这个类是查询动作的核心支撑。</p>
+<p>Manager的任务是管理<strong>QuerySet</strong>，即，在需要的时候去调用QuerySet的对应方法。  </p>
+<h5 id="2-1-基本查询方法"><a href="#2-1-基本查询方法" class="headerlink" title="2.1 基本查询方法"></a>2.1 基本查询方法</h5><ul>
+<li>all()  – 返回值是QuerySet对象，包含了查询到的所有的数据行对应的Model对象</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">User.objects.all() <span class="comment">#返回QuerySet,其中是所有User的数据</span></span><br><span class="line"><span class="comment"># &lt;QuerySet [&lt;User: id:1, name:Tom, ,age:18, salary:1234.210000, birthday:1990-07-12 21:04:39+00:00&gt;]&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>get()  – 返回一个model对象</p>
+<p>注：返回查到的数据，没有数据或数据多于1条 报错</p>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># id为1的数据</span></span><br><span class="line">User.objects.get(id=<span class="number">1</span>)              <span class="comment">#返回查到的数据，没有数据或数据多于1条 报错</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#name='lilei' 且 age=18的数据</span></span><br><span class="line">User.objects.get(name=<span class="string">"lilei"</span>,age=<span class="number">18</span>) <span class="comment">#返回查到的数据，没有数据或数据多于1条 报错</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>filter() – 返回QuerySet对象 </p>
+<p>注：不管有没有对应数据，返回值均为QuerySet</p>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">User.objects.filter(id=<span class="number">1</span>)                <span class="comment"># 返回一个QuerySet,其中是满足条件的数据</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 可以有多条数据，如果没有数据，就返回一个空白的QuerySet</span></span><br><span class="line">User.objects.filter(name=<span class="string">'lilei'</span>,age=<span class="number">18</span>)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>count()</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">User.objects.count()       <span class="comment">#数据数量</span></span><br><span class="line">User.objects.all().count() <span class="comment">#数据数量 和上面等价</span></span><br><span class="line">User.objects.filter(age=<span class="number">18</span>).count()  <span class="comment"># 查询年龄为18的数据行数</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>exclude() -QuerySet (了解)</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">User.objects.exclude(pk=<span class="number">1</span>) <span class="comment">#和filter相反，取不满足条件的数据，返回QuerySet</span></span><br><span class="line">User.objects.exclude(gender=<span class="keyword">True</span>)<span class="comment"># True/False 或者  1/0 和bool的filed比较</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>first()  - 对象 （了解）</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">User.objects.first() <span class="comment">#获取QuerySet中的第一个元素，返回一个对象或None</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>last() - 对象 （了解）</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">User.objects.last() <span class="comment">#获取QuerySet中的最后一个元素，返回一个对象或None</span></span><br><span class="line">User.objects.filter(pk=<span class="number">1</span>,name=<span class="string">"lilei"</span>).last()</span><br></pre></td></tr></table></figure>
+<ul>
+<li>exists() - Boolean （了解）</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">User.objects.exists() <span class="comment">#User对应的表中是否有数据，判断数据表是否为空。返回True/False</span></span><br></pre></td></tr></table></figure>
+<p><strong>补充：将QuerySet对象转为list</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">list(User.objects.all())</span><br></pre></td></tr></table></figure>
+<h5 id="补充-代码-可写在-项目中-tests-py文件中"><a href="#补充-代码-可写在-项目中-tests-py文件中" class="headerlink" title="补充: 代码 可写在 项目中 tests.py文件中"></a>补充: 代码 可写在 项目中 tests.py文件中</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 需要手动配置</span></span><br><span class="line"><span class="keyword">import</span> os,django</span><br><span class="line">os.environ.setdefault(<span class="string">"DJANGO_SETTINGS_MODULE"</span>, <span class="string">"day03.settings"</span>)</span><br><span class="line">django.setup()</span><br><span class="line"><span class="comment"># 导入models.py 即可</span></span><br><span class="line"><span class="comment"># 右键run即可</span></span><br><span class="line"><span class="keyword">from</span> modelapp.models <span class="keyword">import</span> Employee,User</span><br><span class="line"></span><br><span class="line">users = User.objects.all()</span><br><span class="line">print(users)</span><br></pre></td></tr></table></figure>
+<h5 id="2-2-排序-order-by-‘列名’"><a href="#2-2-排序-order-by-‘列名’" class="headerlink" title="2.2 排序 order_by(‘列名’)"></a>2.2 排序 order_by(‘列名’)</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">User.objects.order_by(<span class="string">"pk"</span>) <span class="comment">#根据id升序，返回QuerySet</span></span><br><span class="line">User.objects.all().order_by(<span class="string">"age"</span>)</span><br><span class="line">User.objects.filter(age=<span class="number">18</span>).order_by(<span class="string">"-name"</span>)  <span class="comment"># </span></span><br><span class="line">User.objects.all().order_by(<span class="string">"age"</span>,<span class="string">"-name"</span>) <span class="comment">#根据age升序，age相同的根据name倒序</span></span><br></pre></td></tr></table></figure>
+<h5 id="2-3-限制操作"><a href="#2-3-限制操作" class="headerlink" title="2.3 限制操作"></a>2.3 限制操作</h5><p>取结果集中的某一部分数据</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">User.objects.filter(pk=<span class="number">1</span>,name=<span class="string">"lilei"</span>)[<span class="number">2</span>] <span class="comment">#返回QuerySet中第3个对象</span></span><br><span class="line"></span><br><span class="line">uname=<span class="string">"lilei"</span> <span class="comment">#可以使用变量在查询中</span></span><br><span class="line">User.objects.filter(pk=<span class="number">1</span>,name=uname)[<span class="number">2</span>] <span class="comment">#返回QuerySet中第3个对象</span></span><br><span class="line"></span><br><span class="line">User.objects.exclude(pk=<span class="number">1</span>,name=<span class="string">"lilei"</span>)[<span class="number">1</span>:<span class="number">3</span>] <span class="comment">#返回包含第[2,4)个对象(前闭后开)的新的QuerySet (子集)</span></span><br><span class="line">User.objects.exclude(pk=<span class="number">1</span>,name=<span class="string">"lilei"</span>)[:<span class="number">3</span>] <span class="comment"># 等价于[0:3]</span></span><br><span class="line">User.objects.exclude(pk=<span class="number">1</span>,name=<span class="string">"lilei"</span>)[<span class="number">2</span>:] <span class="comment"># 返回第3个到最后一个对象的新的QuerySet</span></span><br></pre></td></tr></table></figure>
+<p>select * from xxx where id &gt;3</p>
+<h5 id="2-4-条件查询"><a href="#2-4-条件查询" class="headerlink" title="2.4 条件查询"></a>2.4 条件查询</h5><p>在众多查询方法中适合做条件查询的有：get(pk=1)、filter(name=”xx”)、exclude(pk=1)</p>
+<p>get(pk=1,name=”lilei”) 如此只是等值查询，远不能满足查询需求。</p>
+<p>对于比较运算：</p>
+<p>并不支持【&gt; &lt; &gt;= &lt;=】这些符号的操作，替换为关键字lt、gt、lte、gte     </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">User.objects.filter(pk__lt=<span class="number">10</span>) <span class="comment">#id小于10</span></span><br><span class="line">User.objects.filter(pk__gt=<span class="number">100</span>,age__lte=<span class="number">18</span>) <span class="comment">#id大于100且age小于等于18</span></span><br><span class="line"><span class="comment">#日期比较也可以</span></span><br><span class="line">User.objects.exclude(birthday__gte=<span class="string">"2018-5-22 12:12:12"</span>) <span class="comment">#yyyy-mm-dd HH:MM:SS格式</span></span><br><span class="line">User.objects.filter(birthday__gt=datetime.now())</span><br><span class="line"></span><br><span class="line">dd = <span class="string">"2018-5-22 12:12:12"</span><span class="comment">#使用变量</span></span><br><span class="line">User.objects.exclude(birthday__gte=dd，name=<span class="string">"xxx"</span>) <span class="comment">#使用变量</span></span><br></pre></td></tr></table></figure>
+<h5 id="2-5-模糊查询"><a href="#2-5-模糊查询" class="headerlink" title="2.5 模糊查询"></a>2.5 模糊查询</h5><ul>
+<li>contains、icontains            包含、包含（对大小写不敏感–忽略）    “%xx%”  </li>
+<li>startswith、istartswith       以..开始                                                       “xx%”</li>
+<li>endswith、iendswith          以..结尾                                                       “%xx”     </li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">User.objects.filter(name__contains=<span class="string">"s"</span>) <span class="comment">#name中包含"s"</span></span><br><span class="line">User.objects.filter(name__icontains=<span class="string">"s"</span>) <span class="comment">#name中包含"s"或"S" 忽略大小写  ignore</span></span><br><span class="line"></span><br><span class="line">User.objects.filter(name__startswith=<span class="string">"s"</span>)</span><br><span class="line">User.objects.filter(name__istartswith=<span class="string">"s"</span>)<span class="comment"># name是以"s"或"S"开始 忽略大小写</span></span><br><span class="line"></span><br><span class="line">User.objects.filter(name__endswith=<span class="string">"s"</span>)</span><br><span class="line">User.objects.filter(name__iendswith=<span class="string">"s"</span>)<span class="comment"># name是以"s"或"S"结尾 忽略大小写</span></span><br></pre></td></tr></table></figure>
+<h5 id="2-6-范围查询"><a href="#2-6-范围查询" class="headerlink" title="2.6 范围查询"></a>2.6 范围查询</h5><ul>
+<li>in    在某个集合中    id__in=(1,2,4)     </li>
+<li>range 在某个范围中 id__range=(2,5) </li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">User.objects.filter(name__in=(<span class="string">"lilei"</span>,<span class="string">"zz"</span>)) <span class="comment"># where name in("lilei","zz")</span></span><br><span class="line">User.objects.filter(age__in=(<span class="number">18</span>,<span class="number">19</span>,<span class="number">22</span>))</span><br><span class="line"></span><br><span class="line">User.objects.filter(age__range=(<span class="number">18</span>,<span class="number">20</span>)) <span class="comment"># where age between 18 and 20  [18,20]</span></span><br><span class="line">User.objects.filter(birthday__range=(<span class="string">'2018-05-10'</span>,<span class="string">'2018-06-14'</span>))</span><br></pre></td></tr></table></figure>
+<h5 id="2-7-空值查询"><a href="#2-7-空值查询" class="headerlink" title="2.7 空值查询"></a>2.7 空值查询</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">User.objects.filter(age__isnull=<span class="keyword">True</span>)   <span class="comment"># 判断年龄是否为空</span></span><br></pre></td></tr></table></figure>
+<h5 id="2-8-日期查询（了解）"><a href="#2-8-日期查询（了解）" class="headerlink" title="2.8 日期查询（了解）"></a>2.8 日期查询（了解）</h5><ul>
+<li><p>year</p>
+</li>
+<li><p>month  1-12</p>
+</li>
+<li><p>day</p>
+</li>
+<li><p>hour</p>
+</li>
+<li><p>minute</p>
+</li>
+<li><p>second</p>
+</li>
+<li><p>week    一年的第几周  1-52 or 53</p>
+</li>
+<li><p>week_day  周几 周日=1  周六=7</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">User.objects.filter(birthday__year=<span class="string">"2018"</span>)</span><br><span class="line">User.objects.filter(birthday__month=<span class="string">"1"</span>) <span class="comment"># 生日是1月 可选值1-12</span></span><br><span class="line">User.objects.filter(birthday__week_day__gt=<span class="number">1</span>) <span class="comment"># 生日日期大于周日</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h5 id="2-9-映射查询"><a href="#2-9-映射查询" class="headerlink" title="2.9 映射查询"></a>2.9 映射查询</h5><p><code>select * from t_user;</code>  查询全部列  </p>
+<p><code>select id,name from t_user;</code>查询部分列–映射查询</p>
+<ul>
+<li>values()  返回QuerySet对象，包含的元素都是dict</li>
+<li>only()      率先查询某些列</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">User.objects.values() <span class="comment">#  返回QuerySet对象，包含的元素都是dict   User.objects.values()</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#查询部分列(返回QuerySet,其中每个元素都是一个dict)</span></span><br><span class="line">User.objects.all().values(<span class="string">"pk"</span>) <span class="comment">#等价写法：select id from t_user;</span></span><br><span class="line"></span><br><span class="line">User.objects.filter(age__lt=<span class="number">20</span>).values(<span class="string">"name"</span>)  <span class="comment"># select name from t_user where age&lt;20</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#select id,age from t_user where name like "%m%"</span></span><br><span class="line">User.objects.filter(name__contains=<span class="string">"m"</span>).values(<span class="string">"pk"</span>,<span class="string">"age"</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#返回&lt;QuerySet [&lt;User&gt;, &lt;User&gt;] &gt;</span></span><br><span class="line">users = User.objects.only(<span class="string">"pk"</span>,<span class="string">"name"</span>) <span class="comment">#会率先查询id和name，其他列暂时不查</span></span><br><span class="line">                                       <span class="comment">#即，QuerySet内的User中暂时只有id和name有值</span></span><br><span class="line">users[<span class="number">0</span>].age <span class="comment">#用到其他列数据时，才会查询它</span></span><br><span class="line"><span class="comment">#此处涉及到延缓查询的特性：lazy-load</span></span><br></pre></td></tr></table></figure>
+<h5 id="2-10-聚合函数-aggregate"><a href="#2-10-聚合函数-aggregate" class="headerlink" title="2.10 聚合函数 - aggregate"></a>2.10 聚合函数 - aggregate</h5><ul>
+<li>Max( )</li>
+<li>Min( )</li>
+<li>Avg( )</li>
+<li>Sum( )</li>
+<li>Count( ) </li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.db.models <span class="keyword">import</span> Count, Max,Avg,Min,Sum</span><br><span class="line"><span class="comment">#返回 &#123;'pk__max': 4, 'name__min': '2134'&#125;</span></span><br><span class="line">User.objects.aggregate(Max(<span class="string">"pk"</span>),Min(<span class="string">'salary'</span>)) <span class="comment">#select max(id),min(salary) from t_user;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#可以定义别名，影响返回值结构 -- 返回 &#123;'mm': 4, 'name__min': '2134'&#125;</span></span><br><span class="line">User.objects.aggregate(max = Max(<span class="string">"pk"</span>),min = Min(<span class="string">'salary'</span>))<span class="comment">#select max(id) as mm,min(salary) from t_user;</span></span><br></pre></td></tr></table></figure>
+<h5 id="2-11-分组查询-annotate"><a href="#2-11-分组查询-annotate" class="headerlink" title="2.11 分组查询 - annotate"></a>2.11 分组查询 - annotate</h5><p>语法：    </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Models.objects.values(&apos;age&apos;).annotate(Max(&quot;salary&quot;)) </span><br><span class="line"># 分组查询时，是将values中的列作为分组条件的列</span><br></pre></td></tr></table></figure>
+<p>示例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">User.objects.values(<span class="string">'age'</span>).annotate(Count(<span class="string">'age'</span>));</span><br><span class="line"><span class="comment"># select age,Count(age) from userlist group by age;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#每种年龄中的用户的最大id和用户的最小生日</span></span><br><span class="line"><span class="comment">#select age,max(id),min(birthday) from t_user group by age</span></span><br><span class="line">User.objects.values(<span class="string">"age"</span>).annotate(Max(<span class="string">'pk'</span>),Min(<span class="string">'birthday'</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment">#大于18的每种年龄中的用户的最大id和用户的最小生日</span></span><br><span class="line"><span class="comment">#加where : select age,max(id),min(birthday) from t_user where age &gt; 18 group by age</span></span><br><span class="line">User.objects.values(<span class="string">"age"</span>).filter(age__gt=<span class="number">18</span>).annotate(Max(<span class="string">'pk'</span>),Min(<span class="string">'birthday'</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment">#加别名</span></span><br><span class="line">User.objects.values(<span class="string">"age"</span>).filter(age__gt=<span class="number">18</span>).annotate(Min(<span class="string">'birthday'</span>),mm=Max(<span class="string">'pk'</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment">#加having : select age,max(id),min(salary) from t_user having max(id)&gt;3</span></span><br><span class="line">User.objects.values(<span class="string">"age"</span>).annotate(Min(<span class="string">'salary'</span>) ,p = Max(<span class="string">'id'</span>)).filter(p__gt=<span class="number">3</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#加排序</span></span><br><span class="line">User.objects.values(<span class="string">"age"</span>).filter(age__gt=<span class="number">18</span>).annotate(Min(<span class="string">'birthday'</span>),mm=Max(<span class="string">'pk'</span>)).order_by(<span class="string">'mm'</span>)</span><br></pre></td></tr></table></figure>
+<h5 id="2-12-F-和Q-函数"><a href="#2-12-F-和Q-函数" class="headerlink" title="2.12 F()和Q()函数"></a>2.12 F()和Q()函数</h5><p>User.objects.filter(id__gt=1) #id大于1</p>
+<p>问题：查询id大于age的用户？  尝试：User.objects.filter(id__gt=age)–错误</p>
+<p>​                                                                  User.objects.filter(id__gt=”age”)–错误</p>
+<ul>
+<li><strong>当查询条件中需要另外的列时，可以使用F</strong></li>
+</ul>
+<p>User.objects.filter(id__gt=F(‘age’))–正确</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.db.models <span class="keyword">import</span> F</span><br><span class="line">User.objects.filter(id__lt=F(<span class="string">'age'</span>)) <span class="comment">#id小于age</span></span><br><span class="line">User.objects.filter(id__lt=F(<span class="string">'age'</span>)+<span class="number">1</span>) <span class="comment">#id小于age+1</span></span><br><span class="line">User.objects.filter(id__lt=F(<span class="string">'age'</span>)*<span class="number">10</span>/<span class="number">2</span>) <span class="comment">#id小于age*10/2</span></span><br><span class="line">User.objects.filter(id__lt=F(<span class="string">'age'</span>)+F(<span class="string">'salary'</span>)) <span class="comment">#id小于age+salary</span></span><br><span class="line">User.objects.filter(id__lt=<span class="number">2</span>,name__contains=<span class="string">"a"</span>) <span class="comment">#id小于2 而且 name包含“a”</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>当需要 “或 （|） 非（~）” 逻辑时，可以使用Q</strong></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.db.models <span class="keyword">import</span> Q</span><br><span class="line">User.objects.filter(Q(id__gt=<span class="number">3</span>)|Q(id__lt=<span class="number">2</span>)) <span class="comment">#id大于3 或 id小于2</span></span><br><span class="line">User.objects.filter(Q(id__gt=<span class="number">3</span>)|~Q(name__contains=<span class="string">"e"</span>)) <span class="comment">#id大于3 或 name不含有“e”</span></span><br><span class="line">User.objects.filter(Q(id__lt=<span class="number">3</span>)|Q(age__gt=F(<span class="string">"id"</span>)*<span class="number">10</span>)) <span class="comment">#id小于3 或 age大于id*10</span></span><br><span class="line"></span><br><span class="line">User.objects.filter(Q(id__gt=<span class="number">3</span>)|Q(name__contains=<span class="string">"e"</span>)，age__lt=<span class="number">2</span>) <span class="comment">#id大于3 或 name包含"e" 且 age小于2</span></span><br><span class="line"></span><br><span class="line">User.objects.filter(Q(id__gt=<span class="number">3</span>)|Q(name__contains=<span class="string">"lilei"</span>)，~Q(age__lt=<span class="number">2</span>) <span class="comment">#id大于3 或 name包含"ee" 且 age不小于2</span></span><br></pre></td></tr></table></figure>
+<h3 id="六、Raw-SQL"><a href="#六、Raw-SQL" class="headerlink" title="六、Raw-SQL"></a>六、Raw-SQL</h3><p>如果以上的支持不能满足需求，Django也支持直接执行原生SQL语句。   </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">users = User.objects.raw(<span class="string">"select id,name from userlist where id=1"</span>)</span><br><span class="line">users = User.objects.raw(<span class="string">"select id,name from userlist where age=%s and name=%s"</span>,[<span class="number">18</span>,<span class="string">'lilei'</span>])</span><br><span class="line"><span class="keyword">for</span> user <span class="keyword">in</span> users:</span><br><span class="line">    print(user)</span><br><span class="line">    </span><br><span class="line"><span class="comment"># 注意不要在外部拼接sql字符串</span></span><br><span class="line">sql_str = <span class="string">"select id,name from userlist where age=%d and name='%s'"</span>%(<span class="number">18</span>,<span class="string">'lilei'</span>)</span><br><span class="line">User.objects.raw(sql_str) <span class="comment"># 会有sql注入风险</span></span><br><span class="line"></span><br><span class="line">	sql_str = <span class="string">"select id,name from userlist where age=%d and name='%s'"</span>%(<span class="number">18</span>,<span class="string">"' or '1'='1"</span>)</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Python/" rel="tag"># Python</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/01/08/Django-02/" rel="next" title="Django_02">
+                <i class="fa fa-chevron-left"></i> Django_02
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/01/10/Django-04/" rel="prev" title="Django_04">
+                Django_04 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        ﻿<div class="copyright">&copy; 
+<span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">王较瘦</span>
+
+  
+  
+  
+</div>
+
+
+	<div class="powered-by"> <i class="fa fa-user-md"></i>
+	</div>
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+<div id="hexo-helper-live2d">
+  <canvas id="live2dcanvas" width="150" height="300"></canvas>
+</div>
+<style>
+  #live2dcanvas{
+    position: fixed;
+    width: 150px;
+    height: 300px;
+    opacity:0.7;
+    right: 0px;
+    z-index: 999;
+    pointer-events: none;
+    bottom: -20px;
+  }
+</style>
+<script type="text/javascript" src="/live2d/device.min.js"></script>
+<script type="text/javascript">
+const loadScript = function loadScript(c,b){var a=document.createElement("script");a.type="text/javascript";"undefined"!=typeof b&&(a.readyState?a.onreadystatechange=function(){if("loaded"==a.readyState||"complete"==a.readyState)a.onreadystatechange=null,b()}:a.onload=function(){b()});a.src=c;document.body.appendChild(a)};
+(function(){
+  if((typeof(device) != 'undefined') && (device.mobile())){
+    document.getElementById("live2dcanvas").style.width = '75px';
+    document.getElementById("live2dcanvas").style.height = '150px';
+  }else
+    if (typeof(device) === 'undefined') console.error('Cannot find current-device script.');
+  loadScript("/live2d/script.js", function(){loadlive2d("live2dcanvas", "/live2d/assets/hijiki.model.json", 0.5);});
+})();
+</script>
+
+</body>
+</html>

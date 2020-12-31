@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Python," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Django扩展">
+<meta name="keywords" content="Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Django_07">
+<meta property="og:url" content="http://yoursite.com/2019/01/14/Django-07/index.html">
+<meta property="og:site_name" content="王较瘦工作站">
+<meta property="og:description" content="Django扩展">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="d:/wang/Documents/pythhon笔记/Django-notes-pic/1532598642901.png">
+<meta property="og:image" content="d:/wang/Documents/pythhon笔记/Django-notes-pic/admin界面.png">
+<meta property="og:image" content="d:/wang/Documents/pythhon笔记/Django-notes-pic/修改admin后台User显示.png">
+<meta property="og:image" content="d:/wang/Documents/pythhon笔记/Django-notes-pic/操作选项位置.png">
+<meta property="og:image" content="c:/Users/ADMINI~1/AppData/Local/Temp/1531814252335.png">
+<meta property="og:image" content="c:/Users/ADMINI~1/AppData/Local/Temp/1531814668417.png">
+<meta property="og:image" content="c:/Users/ADMINI~1/AppData/Local/Temp/1531814709514.png">
+<meta property="og:image" content="d:/wang/Documents/pythhon笔记/Django-notes-pic/列名别名.png">
+<meta property="og:image" content="d:/wang/Documents/pythhon笔记/Django-notes-pic/定制Model名">
+<meta property="og:image" content="d:/wang/Documents/pythhon笔记/Django-notes-pic/model名">
+<meta property="og:image" content="d:/wang/Documents/pythhon笔记/Django-notes-pic/定制查询栏前">
+<meta property="og:image" content="d:/wang/Documents/pythhon笔记/Django-notes-pic/查询栏">
+<meta property="og:image" content="d:/wang/Documents/pythhon笔记/Django-notes-pic/定制分页前">
+<meta property="og:image" content="d:/wang/Documents/pythhon笔记/Django-notes-pic/分页">
+<meta property="og:image" content="d:/wang/Documents/pythhon笔记/Django-notes-pic/定制搜索框前">
+<meta property="og:image" content="d:/wang/Documents/pythhon笔记/Django-notes-pic/搜索框">
+<meta property="og:image" content="d:/wang/Documents/pythhon笔记/Django-notes-pic/定制可操作的列前">
+<meta property="og:image" content="d:/wang/Documents/pythhon笔记/Django-notes-pic/可操作的列">
+<meta property="og:image" content="d:/wang/Documents/pythhon笔记/Django-notes-pic/定制分组前">
+<meta property="og:image" content="d:/wang/Documents/pythhon笔记/Django-notes-pic/分组显示">
+<meta property="og:image" content="c:/Users/ADMINI~1/AppData/Local/Temp/1531819157050.png">
+<meta property="og:updated_time" content="2020-01-06T16:52:30.563Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Django_07">
+<meta name="twitter:description" content="Django扩展">
+<meta name="twitter:image" content="d:/wang/Documents/pythhon笔记/Django-notes-pic/1532598642901.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"remove","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/01/14/Django-07/"/>
+
+
+
+
+
+  <title>Django_07 | 王较瘦工作站</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">王较瘦工作站</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/14/Django-07/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="王较瘦">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="王较瘦工作站">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Django_07</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-14T00:40:14+08:00">
+                2019
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Django扩展"><a href="#Django扩展" class="headerlink" title="Django扩展"></a>Django扩展</h1><a id="more"></a>
+<h3 id="一、验证码"><a href="#一、验证码" class="headerlink" title="一、验证码"></a>一、验证码</h3><h4 id="1、简介"><a href="#1、简介" class="headerlink" title="1、简介"></a>1、简介</h4><p>在常规的Form表单使用中，验证码是常用的组件，用于更好的保障请求的合法性，防止无效访问，恶意访问，暴力破解等攻击</p>
+<p>在服务器端，生成一个随机的code：“aecd1”  ，将code画到一张图片中，最终将图片写出给client。</p>
+<p><strong>注意：依赖第三方包：pillow</strong></p>
+<p><code>pip install pillow</code></p>
+<h4 id="2、验证码使用过程"><a href="#2、验证码使用过程" class="headerlink" title="2、验证码使用过程"></a>2、验证码使用过程</h4><h5 id="2-1-导入第三方库"><a href="#2-1-导入第三方库" class="headerlink" title="2.1 导入第三方库"></a>2.1 导入第三方库</h5><p><img src="D:/wang/Documents/pythhon笔记/Django-notes-pic/1532598642901.png" alt="1532598642901"> </p>
+<p>将文件拷贝到自己的项目app中，2个py文件，1个data文件夹，保证三个处于项目中的统一个目录中。</p>
+<h5 id="2-2-生成验证码"><a href="#2-2-生成验证码" class="headerlink" title="2.2 生成验证码"></a>2.2 生成验证码</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> random,string</span><br><span class="line"><span class="keyword">from</span> captcha.image <span class="keyword">import</span> ImageCaptcha   <span class="comment">#从image.py中导入ImageCaptchar类</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getcaptcha</span><span class="params">(request)</span>:</span>   <span class="comment"># 127.0.0.1:8000/getcaptcha   </span></span><br><span class="line">    <span class="comment">#为验证码设置字体 获取当前目录下的xxx目录下的segoesc.ttf文件</span></span><br><span class="line">    image = ImageCaptcha(fonts=[os.path.abspath(<span class="string">"xxx/segoesc.ttf"</span>)])</span><br><span class="line">    <span class="comment">#随机码</span></span><br><span class="line">    <span class="comment">#大小写英文字母+数字，随机抽取5位作为验证码 ['x','x','x','x','x'] -&gt; "ABCDE"</span></span><br><span class="line">    code = random.sample(string.ascii_lowercase+string.ascii_uppercase+string.digits,<span class="number">5</span>) </span><br><span class="line">    <span class="comment">#将验证码存入session，以备后续验证</span></span><br><span class="line">	random_code =  <span class="string">""</span>.join(code)</span><br><span class="line">    request.session[<span class="string">'code'</span>]=random_code </span><br><span class="line">    <span class="comment">#将生成的随机字符拼接成字符串，作为验证码图片中的文本</span></span><br><span class="line">    data = image.generate(random_code )</span><br><span class="line">    <span class="comment">#写出验证图片 给客户端</span></span><br><span class="line">    <span class="keyword">return</span> HttpResponse(data,<span class="string">"image/png"</span>)</span><br></pre></td></tr></table></figure>
+<h5 id="2-3-在html中使用验证码"><a href="#2-3-在html中使用验证码" class="headerlink" title="2.3  在html中使用验证码"></a>2.3  在html中使用验证码</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"identifycode"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"&#123;% url 'identify_demo:getcaptcha' %&#125;"</span> <span class="attr">id</span>=<span class="string">"image_code"</span> <span class="attr">width</span>=<span class="string">"80px"</span> <span class="attr">height</span>=<span class="string">"30px"</span> <span class="attr">align</span>=<span class="string">"center"</span>&gt;</span>   </span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"javascript:void(0)"</span> <span class="attr">onclick</span>=<span class="string">"change()"</span>&gt;</span>换一张<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">change</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">var</span> url = <span class="string">"&#123;% url 'identify_demo:getcaptcha' %&#125;?"</span>+<span class="keyword">new</span> <span class="built_in">Date</span>().getTime()</span></span><br><span class="line"><span class="undefined">        </span></span><br><span class="line"><span class="javascript">        $(<span class="string">'#image_code'</span>).attr(<span class="string">'src'</span>,url)    <span class="comment">//刷新验证码</span></span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h5 id="2-4-验证是否正确"><a href="#2-4-验证是否正确" class="headerlink" title="2.4 验证是否正确"></a>2.4 验证是否正确</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">registlogic</span><span class="params">(request)</span>:</span></span><br><span class="line">    code = request.session.get(<span class="string">'code'</span>)</span><br><span class="line">    <span class="keyword">if</span> code.lower() == request.POST.get(<span class="string">'identifycode'</span>).lower():</span><br><span class="line">        <span class="keyword">return</span> HttpResponse(<span class="string">"成功"</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> HttpResponse(<span class="string">"失败"</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="二、文件上传"><a href="#二、文件上传" class="headerlink" title="二、文件上传"></a>二、文件上传</h3><h4 id="1、简介-1"><a href="#1、简介-1" class="headerlink" title="1、简介"></a>1、简介</h4><p>Django的模型类（django.db.models.Model）提供了两个字段FileField和ImageField用于上传文件和图片。而ImageField继承自FileField，<code>class ImageField(FileField):</code></p>
+<p>使用Django的ImageField需要提前安装<strong>pillow</strong>模块，<strong>pip install pillow</strong>即可。</p>
+<h4 id="2、使用步骤"><a href="#2、使用步骤" class="headerlink" title="2、使用步骤"></a>2、使用步骤</h4><p>使用FileField或者ImageField字段的步骤： </p>
+<ol>
+<li>在settings文件中，配置<strong>MEDIA_ROOT</strong>，作为你上传文件在服务器中的基本路径。 </li>
+<li>添加FileField或者ImageField字段到模型中，定义好upload_to参数，文件最终会放在MEDIA_ROOT目录的“upload_to”子目录中。 </li>
+<li>所有真正被保存在数据库中的，只是指向你上传文件路径的字符串而已。可以通过url属性，在Django的模板中方便的访问这些文件。例如，假设有一个ImageField字段，名叫mug_shot，那么在Django模板的HTML文件中，可以使用来获取该文件。</li>
+<li>可以通过name和size属性，获取文件的名称和大小信息。</li>
+</ol>
+<h4 id="3、实例：为用户上传头像"><a href="#3、实例：为用户上传头像" class="headerlink" title="3、实例：为用户上传头像"></a>3、实例：为用户上传头像</h4><h5 id="3-1-设置文件保存目录"><a href="#3-1-设置文件保存目录" class="headerlink" title="3.1 设置文件保存目录"></a>3.1 设置文件保存目录</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># settings.py中：</span></span><br><span class="line"></span><br><span class="line">MEDIA_ROOT = os.path.join(BASE_DIR,<span class="string">"media"</span>)   <span class="comment"># 项目目录下的media目录 需要在项目目录下创建media目录</span></span><br></pre></td></tr></table></figure>
+<h5 id="3-2-定义Model"><a href="#3-2-定义Model" class="headerlink" title="3.2 定义Model"></a>3.2 定义Model</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span><span class="params">(models.Model)</span>:</span></span><br><span class="line">    name = models.CharField(max_length=<span class="number">20</span>)</span><br><span class="line">    <span class="comment">#文件将存于 MEDIA_ROOT目录下的pics目录下</span></span><br><span class="line">    pic = models.ImageField(upload_to=<span class="string">"pics"</span>)</span><br><span class="line">    csspic = models.FileField(upload_to=<span class="string">'pics'</span>) <span class="comment"># 文件将存放在csspic目录下</span></span><br></pre></td></tr></table></figure>
+<p><strong>注意：定义好Model，记得生成移植文件并执行</strong></p>
+<h5 id="3-3-定义form表单"><a href="#3-3-定义form表单" class="headerlink" title="3.3 定义form表单"></a>3.3 定义form表单</h5><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"&#123;% url 'uploadfile_demo:uplogic' %&#125;"</span> <span class="attr">method</span>=<span class="string">"post"</span>  <span class="attr">enctype</span>=<span class="string">"multipart/form-data"</span>&gt;</span>  # 上传文件必须要设置type类型，改变默认键值对形式</span><br><span class="line">    &#123;% csrf_token %&#125;</span><br><span class="line">    用户名：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"name"</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">    头像：<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"file"</span> <span class="attr">name</span>=<span class="string">"source"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">value</span>=<span class="string">"提交"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h5 id="3-4-定义view函数"><a href="#3-4-定义view函数" class="headerlink" title="3.4 定义view函数"></a>3.4 定义view函数</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">uplogic</span><span class="params">(request)</span>:</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        name = request.POST.get(<span class="string">'name'</span>)</span><br><span class="line">        file = request.FILES.get(<span class="string">'source'</span>)  <span class="comment"># 使用FILES属性才能获取到文件 </span></span><br><span class="line">        file.name = generateUUID(file.name)    <span class="comment"># 调用自定义的generateUUID生成唯一文件名，辨识每个文件的名字</span></span><br><span class="line"></span><br><span class="line">        user = User.objects.create(name=name, pic=file)</span><br><span class="line">        <span class="keyword">return</span> HttpResponse(<span class="string">"上传成功"</span>)</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        <span class="keyword">return</span> HttpResponse(<span class="string">"上传失败"</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> uuid,os</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">generateUUID</span><span class="params">(filename)</span>:</span>    <span class="comment"># 创建唯一的文件名 服务器端不会直接用本地上传名字，重命名名字。</span></span><br><span class="line">    id = str(uuid.uuid4())</span><br><span class="line">    extend = os.path.splitext(filename)[<span class="number">1</span>] <span class="comment"># 保证与原文件后缀一致</span></span><br><span class="line">    <span class="keyword">return</span> id+extend</span><br></pre></td></tr></table></figure>
+<p><strong>注意，此时数据库中存储的路径是相对于MEDIA_ROOT的路径</strong></p>
+<p><strong>所以可以将MEDIA_ROOT设置为静态资源根目录，可便于后续的头像回显</strong></p>
+<h5 id="3-5-回显图片"><a href="#3-5-回显图片" class="headerlink" title="3.5 回显图片"></a>3.5 回显图片</h5><ol>
+<li><p>设置静态资源根目录</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">MEDIA_ROOT = os.path.join(BASE_DIR,<span class="string">'media'</span>)</span><br><span class="line"></span><br><span class="line">STATIC_URL = <span class="string">'/static/'</span></span><br><span class="line">STATICFILES_DIRS = [ os.path.join(BASE_DIR, <span class="string">'static'</span>), MEDIA_ROOT ]</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>view函数</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">query</span><span class="params">(request)</span>:</span></span><br><span class="line">    users = User.objects.all()</span><br><span class="line">    <span class="keyword">return</span> render(request,<span class="string">'uploadfile_demo/detail.html'</span>,&#123;<span class="string">'users'</span>:users&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>模板中使用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;% load static %&#125;</span><br><span class="line"></span><br><span class="line">&lt;img src=&quot;&#123;% static user.headpic.url %&#125;&quot; width=&quot;50px&quot;&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><strong>补充：</strong>Python原生文件操作</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test_upload2</span><span class="params">(r)</span>:</span></span><br><span class="line">    <span class="keyword">import</span> os,uuid</span><br><span class="line">    b = r.FILES.get(<span class="string">"source"</span>)  <span class="comment"># 获取上传的文件</span></span><br><span class="line">    unique_name = str(uuid.uuid4())  <span class="comment"># 唯一文件名</span></span><br><span class="line">    ext = os.path.splitext(b.name)[<span class="number">1</span>]  <span class="comment"># 文件后缀</span></span><br><span class="line">    name = unique_name + ext  <span class="comment"># 拼接文件名</span></span><br><span class="line">    <span class="keyword">with</span> open(file=os.path.join(os.path.abspath(<span class="string">"media/just_test/"</span>),name),mode=<span class="string">"wb"</span>) <span class="keyword">as</span> output:</span><br><span class="line">        <span class="keyword">for</span> chunk <span class="keyword">in</span> b.chunks(): <span class="comment">#如果超过2.5M则分块，分为64Kb的块依次读取</span></span><br><span class="line">            				    <span class="comment">#chunks是django.core.files.base.File中的方法</span></span><br><span class="line">            output.write(chunk)</span><br><span class="line">    <span class="keyword">return</span> HttpResponse(<span class="string">"ok"</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="三、分页显示"><a href="#三、分页显示" class="headerlink" title="三、分页显示"></a>三、分页显示</h3><h4 id="1、简介-2"><a href="#1、简介-2" class="headerlink" title="1、简介"></a>1、简介</h4><p> Django自身提供了一些类来实现管理分页，数据被分在不同的页面中，并带有“上一页/下一页”标签。这个类叫做Pagination，其定义位于 django/core/paginator.py 中。</p>
+<p>注意：数据表 需要有排序</p>
+<h4 id="2、Paginator分页器"><a href="#2、Paginator分页器" class="headerlink" title="2、Paginator分页器"></a>2、Paginator分页器</h4><h5 id="2-1-初始化方法"><a href="#2-1-初始化方法" class="headerlink" title="2.1 初始化方法"></a>2.1 初始化方法</h5><p><code>pagtor = Paginator(User.objects.all(),per_page=3)</code>   # 构造分页器对象</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 源码</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Paginator</span><span class="params">(object)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, object_list, per_page, orphans=<span class="number">0</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">                 allow_empty_first_page=True)</span>:</span></span><br><span class="line">        self.object_list = object_list</span><br><span class="line">        self.per_page = int(per_page)</span><br><span class="line">        self.orphans = int(orphans)</span><br><span class="line">        self.allow_empty_first_page = allow_empty_first_page</span><br><span class="line">        self._num_pages = self._count = <span class="keyword">None</span></span><br></pre></td></tr></table></figure>
+<h5 id="2-2-属性"><a href="#2-2-属性" class="headerlink" title="2.2 属性"></a>2.2 属性</h5><ul>
+<li>Paginator.count：所有页面对象总数，即统计object_list中item数目。 </li>
+<li>Pagnator.num_pages：页面总数。</li>
+<li>pagiator.page_range：页面范围，从1开始，例如[1,2,3,4]。</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">pagtor = Paginator(User.objects.all(),per_page=<span class="number">3</span>)   <span class="comment"># 构造分页器对象</span></span><br><span class="line">print(pagtor.count)                                 <span class="comment"># 获取item总数</span></span><br><span class="line">print(pagtor.num_pages)                             <span class="comment"># 页面数</span></span><br><span class="line">print(pagtor.page_range)                            <span class="comment"># 页面范围</span></span><br></pre></td></tr></table></figure>
+<h5 id="2-3-page方法（重点）"><a href="#2-3-page方法（重点）" class="headerlink" title="2.3 page方法（重点）"></a>2.3 page方法（重点）</h5><p>Paginator.page(number)：根据参数number返回一个Page对象，表示第number页。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">page = Paginator(User.objects.all(),per_page=<span class="number">3</span>).page(<span class="number">1</span>)  <span class="comment"># 获取第一页</span></span><br></pre></td></tr></table></figure>
+<h4 id="3、Page对象"><a href="#3、Page对象" class="headerlink" title="3、Page对象"></a>3、Page对象</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Page</span><span class="params">(collections.Sequence)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, object_list, number, paginator)</span>:</span></span><br><span class="line">        self.object_list = object_list</span><br><span class="line">        self.number = number                </span><br><span class="line">        self.paginator = paginator    <span class="comment"># 分页器对象</span></span><br></pre></td></tr></table></figure>
+<h5 id="3-1-方法"><a href="#3-1-方法" class="headerlink" title="3.1 方法"></a>3.1 方法</h5><ul>
+<li><code>Page.has_next</code>()  如果有下一页，则返回<code>True</code>。</li>
+<li><code>Page.has_previous</code>() 如果有上一页，返回 <code>True</code>。</li>
+<li><code>Page.has_other_pages</code>() 如果有上一页或下一页，返回<code>True</code>。</li>
+<li><code>Page.next_page_number</code>() 返回下一页的页码。如果下一页不存在，抛出<code>InvalidPage</code>异常。</li>
+<li><code>Page.previous_page_number</code>() 返回上一页的页码。如果上一页不存在，抛出InvalidPage异常。</li>
+<li><code>Page.start_index</code>() 返回当前页上的第一个对象，相对于分页列表的所有对象的序号，从1开始。比如，将五个对象的列表分为每页两个对象，第二页的<code>start_index()</code>会返回<code>3</code>。</li>
+<li><code>Page.end_index</code>() 返回当前页上的最后一个对象，相对于分页列表的所有对象的序号，从1开始。 比如，将五个对象的列表分为每页两个对象，第二页的<code>end_index()</code> 会返回 <code>4</code>。</li>
+</ul>
+<h5 id="3-2-属性"><a href="#3-2-属性" class="headerlink" title="3.2 属性"></a>3.2 属性</h5><ul>
+<li><code>Page.object_list</code>当前页上所有对象的列表。</li>
+<li><code>Page.number</code>当前页的序号，从1开始。</li>
+<li><code>Page.paginator</code>相关的<code>Paginator</code>对象。</li>
+</ul>
+<h4 id="4、实例"><a href="#4、实例" class="headerlink" title="4、实例"></a>4、实例</h4><h5 id="4-1-简单分页"><a href="#4-1-简单分页" class="headerlink" title="4.1 简单分页"></a>4.1 简单分页</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># http://localhost:8000/page/index/?num=2</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">index</span><span class="params">(request)</span>:</span></span><br><span class="line">    number = request.GET.get(<span class="string">'num'</span>)</span><br><span class="line">    pagtor = Paginator(User.objects.all(),per_page=<span class="number">4</span>)</span><br><span class="line">    page = pagtor.page(number)  <span class="comment"># 某一页的page对象</span></span><br><span class="line">    <span class="keyword">return</span> render(request,<span class="string">'page_demo/index.html'</span>,&#123;<span class="string">'page'</span>:page&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="comment"># 显示某一页所有数据#&#125;</span></span><br><span class="line"></span><br><span class="line">&#123;% <span class="keyword">for</span> user <span class="keyword">in</span> page.object_list %&#125;</span><br><span class="line">  &#123;&#123; user.id &#125;&#125; --  &#123;&#123; user.name &#125;&#125; -- &#123;&#123; user.password &#125;&#125; &lt;br&gt;</span><br><span class="line">&#123;% endfor %&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="4-2-输出序号"><a href="#4-2-输出序号" class="headerlink" title="4.2 输出序号"></a>4.2 输出序号</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="comment"># 显示某一页所有数据#&#125;</span></span><br><span class="line"></span><br><span class="line">&#123;% <span class="keyword">for</span> user <span class="keyword">in</span> page.object_list %&#125;</span><br><span class="line">  &#123;&#123; user.id &#125;&#125; --  &#123;&#123; user.name &#125;&#125; -- &#123;&#123; user.password &#125;&#125; &lt;br&gt;</span><br><span class="line">&#123;% endfor %&#125;</span><br><span class="line"></span><br><span class="line">&#123;<span class="comment"># 输出所有页号 #&#125;</span></span><br><span class="line">&#123;% <span class="keyword">for</span> page_num <span class="keyword">in</span> page.paginator.page_range %&#125;</span><br><span class="line">	&lt;a href="/page/index/?num=&#123;&#123; page_num &#125;&#125;"&gt;&#123;&#123; page_num &#125;&#125;&lt;/a&gt;</span><br><span class="line">&#123;% endfor %&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="4-3-显示上一页-下一页"><a href="#4-3-显示上一页-下一页" class="headerlink" title="4.3 显示上一页/下一页"></a>4.3 显示上一页/下一页</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&#123;% <span class="keyword">for</span> user <span class="keyword">in</span> page.object_list %&#125;</span><br><span class="line">  &#123;&#123; user.id &#125;&#125; --  &#123;&#123; user.name &#125;&#125; -- &#123;&#123; user.password &#125;&#125; &lt;br&gt;</span><br><span class="line">&#123;% endfor %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% <span class="keyword">if</span> page.has_previous %&#125;             &#123;<span class="comment"># 是否有上一页 #&#125;</span></span><br><span class="line">    &lt;a href="/page/index/?num=&#123;&#123; page.previous_page_number &#125;&#125;"&gt;上一页&lt;/a&gt;</span><br><span class="line">&#123;% endif %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% <span class="keyword">for</span> num <span class="keyword">in</span> page.paginator.page_range %&#125;     &#123;<span class="comment"># 是否有下一页 #&#125;</span></span><br><span class="line">    &lt;a href="/page/index/?num=&#123;&#123; num &#125;&#125;"&gt;&#123;&#123; num &#125;&#125;&lt;/a&gt;</span><br><span class="line">&#123;% endfor %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% <span class="keyword">if</span> page.has_next %&#125;</span><br><span class="line">    &lt;a href="/page/index/?num=&#123;&#123; page.next_page_number &#125;&#125;"&gt;下一页&lt;/a&gt;</span><br><span class="line">&#123;% endif %&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="4-4-页码样式"><a href="#4-4-页码样式" class="headerlink" title="4.4 页码样式"></a>4.4 页码样式</h5><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="selector-tag">style</span>&gt;</span><br><span class="line">    <span class="selector-class">.current</span>&#123;</span><br><span class="line">        <span class="attribute">width</span>:<span class="number">20px</span>;</span><br><span class="line">        <span class="attribute">height</span>: <span class="number">20px</span>;</span><br><span class="line">        <span class="attribute">border</span>:<span class="number">1px</span> solid <span class="number">#e1e2e3</span>;</span><br><span class="line">        <span class="attribute">background-color</span>: yellow;</span><br><span class="line">        <span class="attribute">cursor</span>:pointer;</span><br><span class="line">        <span class="attribute">display</span>: inline-block;</span><br><span class="line">        <span class="attribute">text-align</span>: center;</span><br><span class="line">        <span class="attribute">line-height</span>: <span class="number">20px</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="selector-class">.normal</span>&#123;</span><br><span class="line">        <span class="attribute">border</span>:<span class="number">0</span>;</span><br><span class="line">        <span class="attribute">width</span>:<span class="number">20px</span>;</span><br><span class="line">        <span class="attribute">height</span>: <span class="number">20px</span>;</span><br><span class="line">        <span class="attribute">cursor</span>:pointer;</span><br><span class="line">        <span class="attribute">display</span>: inline-block;</span><br><span class="line">        <span class="attribute">text-align</span>: center;</span><br><span class="line">        <span class="attribute">line-height</span>: <span class="number">20px</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="selector-tag">a</span>&#123;</span><br><span class="line">        <span class="attribute">text-decoration</span>:none;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#显示某一页面数据</span></span><br><span class="line">&#123;% <span class="keyword">for</span> user <span class="keyword">in</span> page.object_list %&#125;</span><br><span class="line">  &#123;&#123; user.id &#125;&#125; --  &#123;&#123; user.name &#125;&#125; -- &#123;&#123; user.password &#125;&#125; &lt;br&gt;</span><br><span class="line">&#123;% endfor %&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">#显示上一页</span></span><br><span class="line">&#123;% <span class="keyword">if</span> page.has_previous %&#125;</span><br><span class="line">    &lt;a href="/page/index/?num=&#123;&#123; page.previous_page_number &#125;&#125;"&gt;上一页&lt;/a&gt;</span><br><span class="line">&#123;% endif %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% <span class="keyword">for</span> num <span class="keyword">in</span> page.paginator.page_range %&#125;</span><br><span class="line">    &lt;a href=<span class="string">"/page/index/?num=&#123;&#123; num &#125;&#125;"</span>&gt;</span><br><span class="line">        &#123;% <span class="keyword">if</span> num == page.number %&#125;            &#123;<span class="comment"># 当前选中页的样式 #&#125;</span></span><br><span class="line">            &lt;span class="current"&gt;&#123;&#123; num &#125;&#125;&lt;/span&gt;</span><br><span class="line">        &#123;% <span class="keyword">else</span> %&#125;</span><br><span class="line">            &lt;span class="normal"&gt;&#123;&#123; num &#125;&#125;&lt;/span&gt;</span><br><span class="line">        &#123;% endif %&#125;</span><br><span class="line">    &lt;/a&gt;</span><br><span class="line">&#123;% endfor %&#125;</span><br><span class="line"></span><br><span class="line"> <span class="comment">#显示下一页</span></span><br><span class="line">&#123;% <span class="keyword">if</span> page.has_next %&#125;</span><br><span class="line">    &lt;a href="/page/index/?num=&#123;&#123; page.next_page_number &#125;&#125;"&gt;下一页&lt;/a&gt;</span><br><span class="line">&#123;% endif %&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="四、中间件"><a href="#四、中间件" class="headerlink" title="四、中间件"></a>四、中间件</h3><h4 id="1、简介-3"><a href="#1、简介-3" class="headerlink" title="1、简介"></a>1、简介</h4><p>中间件（Middleware）用于在http请求到达<code>视图函数之前</code> 和 <code>视图函数return之后</code>，django会根据自己的规则在合适的时机执行中间件中相应的方法。 </p>
+<p>常用作view中冗余功能的抽取，如每个页面（或某些页面）在访问前<strong>强制登录</strong>。</p>
+<h4 id="2、定义中间件"><a href="#2、定义中间件" class="headerlink" title="2、定义中间件"></a>2、定义中间件</h4><p>单独 创建py文件 即可</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyMiddleware</span><span class="params">(MiddlewareMixin)</span>:</span>          <span class="comment"># 自定义的中间件</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,get_response)</span>:</span><span class="comment">#初始化</span></span><br><span class="line">        super().__init__(get_response)</span><br><span class="line">        print(<span class="string">"init1"</span>)</span><br><span class="line">	<span class="comment">#view处理请求前执行</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">process_request</span><span class="params">(self,request)</span>:</span>  <span class="comment">#某一个view</span></span><br><span class="line">        </span><br><span class="line">        print(<span class="string">"request:"</span>,request)</span><br><span class="line">    <span class="comment">#在process_request之后View之前执行</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">process_view</span><span class="params">(self,request, view_func, view_args, view_kwargs)</span>:</span></span><br><span class="line">        print(<span class="string">"view:"</span>,request,view_func,view_args,view_kwargs)</span><br><span class="line">	<span class="comment">#view执行之后，响应之前执行</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">process_response</span><span class="params">(self,request,response)</span>:</span></span><br><span class="line">        print(<span class="string">"response:"</span>,request,response)</span><br><span class="line">        <span class="keyword">return</span> response <span class="comment">#必须返回response</span></span><br><span class="line">    <span class="comment">#如果View中抛出了异常</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">process_exception</span><span class="params">(self,request,ex)</span>:</span><span class="comment">#View中出现异常时执行</span></span><br><span class="line">        print(<span class="string">"exception:"</span>,request,ex)</span><br></pre></td></tr></table></figure>
+<p><strong>中间件中常用的两个过程：</strong>process_request , process_response</p>
+<h4 id="3、激活中间件"><a href="#3、激活中间件" class="headerlink" title="3、激活中间件"></a>3、激活中间件</h4><p>每当有请求发生时，所有中间件都会执行自己的生命周期。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">MIDDLEWARE = [</span><br><span class="line">    <span class="string">'django.middleware.security.SecurityMiddleware'</span>,</span><br><span class="line">    ....</span><br><span class="line">    <span class="string">'middleware115.middlewares.MyMiddleware'</span>,<span class="comment"># 注册自定义中间件路径，尽量放在最后注册</span></span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<h4 id="4、强制登录实例"><a href="#4、强制登录实例" class="headerlink" title="4、强制登录实例"></a>4、强制登录实例</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyMiddleAware2</span><span class="params">(MiddlewareMixin)</span>:</span></span><br><span class="line">    <span class="comment">#如果验证成功，则什么一个不用做，否则返回HttpResponse即可响应请求(中断)</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">process_request</span><span class="params">(self,request)</span>:</span><span class="comment">#强制登录判断</span></span><br><span class="line">        <span class="comment"># 特殊情况：访问login，正常进行登录即可</span></span><br><span class="line">        <span class="keyword">if</span> <span class="string">"login"</span> <span class="keyword">not</span> <span class="keyword">in</span> request.path:<span class="comment">#路径中有login，正常登录即可</span></span><br><span class="line">            print(<span class="string">"登录验证"</span>)</span><br><span class="line">            session = request.session <span class="comment">#获取session</span></span><br><span class="line">            <span class="keyword">if</span> session.get(<span class="string">"login"</span>): <span class="comment">#判断是否有登录的标记</span></span><br><span class="line">                print(<span class="string">"已登录"</span>)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                print(<span class="string">"未登录"</span>)</span><br><span class="line">                <span class="keyword">return</span> render(request,<span class="string">"login.html"</span>) <span class="comment">#未登录则，跳转登录页面</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            print(<span class="string">"正在登录"</span>) <span class="comment">#如果路径中"login"则是登录动作本身</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">process_response</span><span class="params">(self,request,response)</span>:</span></span><br><span class="line">        print(<span class="string">"response:"</span>,request,response)</span><br><span class="line">        <span class="keyword">return</span> response <span class="comment">#持续返回响应</span></span><br></pre></td></tr></table></figure>
+<h3 id="五、CSRF"><a href="#五、CSRF" class="headerlink" title="五、CSRF"></a>五、CSRF</h3><h4 id="1、简介-4"><a href="#1、简介-4" class="headerlink" title="1、简介"></a>1、简介</h4><p>CSRF（Cross-site request forgery）跨站请求伪造，是一种常见的网络攻击手段。</p>
+<h4 id="2、基本使用"><a href="#2、基本使用" class="headerlink" title="2、基本使用"></a>2、基本使用</h4><p>Django为我们提供了防范CSRF攻击的机制。 </p>
+<p>默认情况下，使用<code>django-admin startproject xxx</code>命令创建工程时，CSRF防御机制就已经开启了。如果没有开启，请在MIDDLEWARE设置中添加’django.middleware.csrf.CsrfViewMiddleware’</p>
+<p><strong>对于GET请求，一般来说没有这个问题，CSRF通常是针对POST方法的！</strong></p>
+<p>在含有POST表单的模板中，需要在其<code>&lt;form&gt;</code>表单元素内部添加<code>csrf_token</code>标签，如下所示：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">""</span> <span class="attr">method</span>=<span class="string">"post"</span>&gt;</span></span><br><span class="line">    &#123;% csrf_token %&#125;</span><br><span class="line">    ....</span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="3、实现原理"><a href="#3、实现原理" class="headerlink" title="3、实现原理"></a>3、实现原理</h4><ol>
+<li>在发送请求时，通过CsrfViewMiddleware 在服务器端生成一个随机的token(令牌)，在render渲染模板时存放于form单的隐藏域和cookie中</li>
+<li>当再次form发送请求时，会携带隐藏域令牌和cookie中的令牌，此时CsrfViewMiddleware 会先于View执行，去判断两块令牌是否一致，验明正身。</li>
+</ol>
+<h3 id="六、Admin管理后台"><a href="#六、Admin管理后台" class="headerlink" title="六、Admin管理后台"></a>六、Admin管理后台</h3><h4 id="1、简介-5"><a href="#1、简介-5" class="headerlink" title="1、简介"></a>1、简介</h4><p>Admin站点是Django有别于其它Web框架最重要的一点</p>
+<p>admin通过读取你的模型数据，快速构造出一个可以对实际数据进行管理的Web站点</p>
+<p>常用于开发测试，简单管理等场合，适用于部门内部为工作方便的场合，但不建议在生产环境中使用。</p>
+<h4 id="2、admin使用步骤"><a href="#2、admin使用步骤" class="headerlink" title="2、admin使用步骤"></a>2、admin使用步骤</h4><h5 id="2-1-安装django-contrib-admin"><a href="#2-1-安装django-contrib-admin" class="headerlink" title="2.1 安装django.contrib.admin"></a>2.1 安装django.contrib.admin</h5><p>确保,在settins.py中的INSTALLED_APPS 中安装了admin，它会扫描每个app的admin.py，进而支持后台管理。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">INSTALLED_APPS = [</span><br><span class="line">    <span class="string">'django.contrib.admin'</span>,            <span class="comment"># 安装admin</span></span><br><span class="line">    <span class="string">'django.contrib.auth'</span>,             <span class="comment"># 下面四个为admin的依赖模块</span></span><br><span class="line">    <span class="string">'django.contrib.contenttypes'</span>,</span><br><span class="line">    <span class="string">'django.contrib.sessions'</span>,</span><br><span class="line">    <span class="string">'django.contrib.messages'</span>,</span><br><span class="line">    ...</span><br><span class="line"> ]</span><br></pre></td></tr></table></figure>
+<h5 id="2-2-注册Model"><a href="#2-2-注册Model" class="headerlink" title="2.2 注册Model"></a>2.2 注册Model</h5><p>在App的admin.py中注册需要管理的Model类</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">admin.site.register(User)</span><br></pre></td></tr></table></figure>
+<h5 id="2-3-创建管理员账户"><a href="#2-3-创建管理员账户" class="headerlink" title="2.3 创建管理员账户"></a>2.3 创建管理员账户</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python manage.py createsuperuser</span><br></pre></td></tr></table></figure>
+<h5 id="2-4-启动服务"><a href="#2-4-启动服务" class="headerlink" title="2.4 启动服务"></a>2.4 启动服务</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python manage.py runserver</span><br></pre></td></tr></table></figure>
+<h5 id="2-5-访问后台管理页面"><a href="#2-5-访问后台管理页面" class="headerlink" title="2.5 访问后台管理页面"></a>2.5 访问后台管理页面</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http://localhost:8000/admin</span><br></pre></td></tr></table></figure>
+<p>在URLconf中默认已经配置好admin的访问路径</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">urlpatterns = [</span><br><span class="line">    path(&apos;admin/&apos;, admin.site.urls),</span><br><span class="line">    ...</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<h4 id="3、定制admin"><a href="#3、定制admin" class="headerlink" title="3、定制admin"></a>3、定制admin</h4><h5 id="3-1-User（Models）管理页面"><a href="#3-1-User（Models）管理页面" class="headerlink" title="3.1 User（Models）管理页面"></a>3.1 User（Models）管理页面</h5><p><img src="D:/wang/Documents/pythhon笔记/Django-notes-pic/admin界面.png" alt="1531812346521"></p>
+<p>修改后台列表显示User Object，改为更为直观的信息：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span><span class="params">(models.Model)</span>:</span></span><br><span class="line">    name = models.CharField(max_length=<span class="number">30</span>)</span><br><span class="line">    imagepath = models.ImageField(upload_to=<span class="string">'lilei'</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__str__</span><span class="params">(self)</span>:</span>          <span class="comment"># 重写__str__方法</span></span><br><span class="line">        <span class="keyword">return</span> self.name</span><br></pre></td></tr></table></figure>
+<p><img src="D:/wang/Documents/pythhon笔记/Django-notes-pic/修改admin后台User显示.png" alt="1531812582045"></p>
+<h5 id="3-2-操作选项位置"><a href="#3-2-操作选项位置" class="headerlink" title="3.2  操作选项位置"></a>3.2  操作选项位置</h5><ul>
+<li>定制前：</li>
+</ul>
+<p><img src="D:/wang/Documents/pythhon笔记/Django-notes-pic/操作选项位置.png" alt="1531813791353"></p>
+<p><strong>补充：</strong>注册admin的另一种方式 <code>装饰器</code></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@admin.register(User)                # 等价于 admin.site.register(User)</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UserAdmin</span><span class="params">(admin.ModelAdmin)</span>:</span></span><br><span class="line">    <span class="comment">#定制操作选项位置</span></span><br><span class="line">    actions_on_top = <span class="keyword">True</span></span><br><span class="line">    actions_on_bottom = <span class="keyword">True</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>定制后：</li>
+</ul>
+<p><img src="C:\Users\ADMINI~1\AppData\Local\Temp\1531814252335.png" alt="1531814252335"></p>
+<h5 id="3-3-定制列名"><a href="#3-3-定制列名" class="headerlink" title="3.3 定制列名"></a>3.3 定制列名</h5><ul>
+<li>定制前：</li>
+</ul>
+<p><img src="C:\Users\ADMINI~1\AppData\Local\Temp\1531814668417.png" alt="1531814668417"></p>
+<ul>
+<li>定制后：</li>
+</ul>
+<p><img src="C:\Users\ADMINI~1\AppData\Local\Temp\1531814709514.png" alt="1531814709514"></p>
+<ul>
+<li>代码：</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UserAdmin</span><span class="params">(admin.ModelAdmin)</span>:</span></span><br><span class="line">	list_display = [<span class="string">'name'</span>,<span class="string">'imagepath'</span>] <span class="comment"># 定制显示的列名</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>定制列名的别名（可以是中文）</strong></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span><span class="params">(models.Model)</span>:</span></span><br><span class="line">    name = models.CharField(max_length=<span class="number">30</span>)</span><br><span class="line">    imagepath = models.ImageField(upload_to=<span class="string">'lilei'</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">other_name</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.name</span><br><span class="line">    other_name.short_description = <span class="string">'姓名'</span>  <span class="comment"># 改列名</span></span><br><span class="line">    other_name.admin_order_field = <span class="string">'name'</span>  <span class="comment"># 保证改列名后依然可以排序</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">other_path</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> self.imagepath</span><br><span class="line">    other_path.short_description = <span class="string">'图片路径'</span></span><br><span class="line">    other_name.admin_order_field = <span class="string">'imagepath'</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -- admin.py -- #</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UserAdmin</span><span class="params">(admin.ModelAdmin)</span>:</span></span><br><span class="line"></span><br><span class="line">    list_display = [<span class="string">'other_name'</span>,<span class="string">'other_path'</span>] <span class="comment"># 定制显示的列名的别名 注意使用的是other_name</span></span><br></pre></td></tr></table></figure>
+<p><img src="D:/wang/Documents/pythhon笔记/Django-notes-pic/列名别名.png" alt="1531815337945"></p>
+<h5 id="3-4-定制Model名"><a href="#3-4-定制Model名" class="headerlink" title="3.4 定制Model名"></a>3.4 定制Model名</h5><ul>
+<li>定制前：</li>
+</ul>
+<p><img src="D:/wang/Documents/pythhon笔记/Django-notes-pic/定制Model名" alt="1531815869870"></p>
+<ul>
+<li>定制后：</li>
+</ul>
+<p><img src="D:/wang/Documents/pythhon笔记/Django-notes-pic/model名" alt="1531815931757"></p>
+<ul>
+<li>代码：</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span><span class="params">(models.Model)</span>:</span></span><br><span class="line">    ...</span><br><span class="line"></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Meta</span>:</span></span><br><span class="line">        verbose_name = <span class="string">"用户"</span>          <span class="comment"># 修改Model名</span></span><br><span class="line">        verbose_name_plural = <span class="string">"用户"</span>   <span class="comment"># 复数Model名 默认为users</span></span><br></pre></td></tr></table></figure>
+<h5 id="3-5-定制过滤查询栏"><a href="#3-5-定制过滤查询栏" class="headerlink" title="3.5 定制过滤查询栏"></a>3.5 定制过滤查询栏</h5><ul>
+<li>定制前：</li>
+</ul>
+<p><img src="D:/wang/Documents/pythhon笔记/Django-notes-pic/定制查询栏前" alt="1531816162933"></p>
+<ul>
+<li>定制后：</li>
+</ul>
+<p><img src="D:/wang/Documents/pythhon笔记/Django-notes-pic/查询栏" alt="1531816244585"></p>
+<ul>
+<li>代码：</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UserAdmin</span><span class="params">(admin.ModelAdmin)</span>:</span></span><br><span class="line"></span><br><span class="line">    list_display = [<span class="string">'other_name'</span>,<span class="string">'other_path'</span>]  </span><br><span class="line">    list_filter = [<span class="string">'name'</span>,<span class="string">'imagepath'</span>]         <span class="comment"># 定制过滤查询栏</span></span><br></pre></td></tr></table></figure>
+<h5 id="3-6-定制分页"><a href="#3-6-定制分页" class="headerlink" title="3.6 定制分页"></a>3.6 定制分页</h5><ul>
+<li>定制前：</li>
+</ul>
+<p><img src="D:/wang/Documents/pythhon笔记/Django-notes-pic/定制分页前" alt="1531816470130"></p>
+<ul>
+<li>定制后：</li>
+</ul>
+<p><img src="D:/wang/Documents/pythhon笔记/Django-notes-pic/分页" alt="1531816419699"></p>
+<h5 id="3-7-定制搜索框"><a href="#3-7-定制搜索框" class="headerlink" title="3.7 定制搜索框"></a>3.7 定制搜索框</h5><ul>
+<li>定制前：</li>
+</ul>
+<p><img src="D:/wang/Documents/pythhon笔记/Django-notes-pic/定制搜索框前" alt="1531816603764"></p>
+<ul>
+<li>定制后：</li>
+</ul>
+<p><img src="D:/wang/Documents/pythhon笔记/Django-notes-pic/搜索框" alt="1531816673645"></p>
+<ul>
+<li>代码：</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UserAdmin</span><span class="params">(admin.ModelAdmin)</span>:</span></span><br><span class="line">    search_fields = [<span class="string">'name'</span>] <span class="comment">#可以以哪列作为条件搜索，会增加搜索框</span></span><br></pre></td></tr></table></figure>
+<h5 id="3-8-定制可操作的列"><a href="#3-8-定制可操作的列" class="headerlink" title="3.8 定制可操作的列"></a>3.8 定制可操作的列</h5><ul>
+<li>定制前：</li>
+</ul>
+<p><img src="D:/wang/Documents/pythhon笔记/Django-notes-pic/定制可操作的列前" alt="1531818430016"></p>
+<ul>
+<li>定制后：</li>
+</ul>
+<p><img src="D:/wang/Documents/pythhon笔记/Django-notes-pic/可操作的列" alt="1531818482886"></p>
+<ul>
+<li>代码：</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UserAdmin</span><span class="params">(admin.ModelAdmin)</span>:</span></span><br><span class="line">	fields = [(<span class="string">'name'</span>, <span class="string">'imagepath'</span>)] <span class="comment">#增加和修改页显示的列，且name和imagepath列在一行显示</span></span><br></pre></td></tr></table></figure>
+<h5 id="3-9-定制分组显示"><a href="#3-9-定制分组显示" class="headerlink" title="3.9 定制分组显示"></a>3.9 定制分组显示</h5><ul>
+<li>定制前：</li>
+</ul>
+<p><img src="D:/wang/Documents/pythhon笔记/Django-notes-pic/定制分组前" alt="1531817042108"></p>
+<ul>
+<li>定制后：</li>
+</ul>
+<p><img src="D:/wang/Documents/pythhon笔记/Django-notes-pic/分组显示" alt="1531817077831"></p>
+<ul>
+<li>代码：</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UserAdmin</span><span class="params">(admin.ModelAdmin)</span>:</span></span><br><span class="line"></span><br><span class="line">	...</span><br><span class="line"></span><br><span class="line">    fieldsets = (</span><br><span class="line">        (<span class="string">'基本信息'</span>,&#123;<span class="string">'fields'</span>:[<span class="string">'name'</span>]&#125;),</span><br><span class="line">        (<span class="string">'头像'</span>,&#123;<span class="string">'fields'</span>:[<span class="string">'imagepath'</span>]&#125;)</span><br><span class="line">    )</span><br></pre></td></tr></table></figure>
+<h5 id="3-10-关联显示"><a href="#3-10-关联显示" class="headerlink" title="3.10  关联显示"></a>3.10  关联显示</h5><p><img src="C:\Users\ADMINI~1\AppData\Local\Temp\1531819157050.png" alt="1531819157050"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Order</span><span class="params">(models.Model)</span>:</span></span><br><span class="line">    title = models.CharField(max_length=<span class="number">30</span>)</span><br><span class="line">    price = models.FloatField()</span><br><span class="line">    user = models.ForeignKey(to=User,on_delete=models.CASCADE)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">OrderInline</span><span class="params">(StackedInline)</span>:</span></span><br><span class="line">    model = Order</span><br><span class="line"></span><br><span class="line"><span class="meta">@admin.register(User)</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UserAdmin</span><span class="params">(admin.ModelAdmin)</span>:</span></span><br><span class="line">    inlines = [</span><br><span class="line">        OrderInline</span><br><span class="line">    ]</span><br></pre></td></tr></table></figure>
+<h3 id="七、Form-了解"><a href="#七、Form-了解" class="headerlink" title="七、Form(了解)"></a>七、Form(了解)</h3><blockquote>
+<p>可以快速定制前端的form表单，并提供参数接收，数据验证。功能看似很全面</p>
+<p>但实则使用价值不大，因为有众多前端框架，可以更专业的定制前端逻辑，而django如此定制有些越俎代庖，而且会影响前端框架的建设，无法和前端人员或前端技术对接(如：easyUI,bootstrap等)</p>
+<p>所以，此章节请自学，了解即可！</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">UserForm</span><span class="params">(forms.ModelForm)</span>:</span></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Meta</span>:</span></span><br><span class="line">        model = User2</span><br><span class="line">        <span class="comment">#fields=["name","age","gender"]</span></span><br><span class="line">        exclude=[<span class="string">"salary2"</span>]</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">aa</span><span class="params">(request)</span>:</span></span><br><span class="line">	print(<span class="string">"goto a template"</span>)</span><br><span class="line">	render(request,<span class="string">"xx.html"</span>,&#123;<span class="string">"form"</span>:UserForm()&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">xx.html</span><br><span class="line">&lt;form action = <span class="string">"xxx"</span> method=<span class="string">"post"</span>&gt;</span><br><span class="line">	&#123;% csrf_token %&#125;</span><br><span class="line">    &lt;table&gt;</span><br><span class="line">    	&#123;&#123; form &#125;&#125;</span><br><span class="line">        &lt;tr&gt;</span><br><span class="line">        &lt;td colspan="2" align="center"&gt;&lt;input type="submit" value="Submit" /&gt;&lt;/td&gt;</span><br><span class="line">        &lt;/tr&gt;</span><br><span class="line">    &lt;/table&gt;</span><br><span class="line">&lt;/form&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test3</span><span class="params">(request)</span>:</span></span><br><span class="line">    form = UserForm(request.POST)</span><br><span class="line">    <span class="keyword">if</span> form.is_valid():</span><br><span class="line">        print(<span class="string">"表单数据合法"</span>)</span><br><span class="line">        <span class="comment">#&#123;'name': 'zzz', 'age': 18, 'gender': True, 'birth': datetime.date(2018, 11, 12),...&#125;</span></span><br><span class="line">        data = form.cleaned_data</span><br><span class="line">        print(data)</span><br><span class="line">    <span class="keyword">return</span> render(...)</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Python/" rel="tag"># Python</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/01/12/Django-06/" rel="next" title="Django_06">
+                <i class="fa fa-chevron-left"></i> Django_06
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        ﻿<div class="copyright">&copy; 
+<span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">王较瘦</span>
+
+  
+  
+  
+</div>
+
+
+	<div class="powered-by"> <i class="fa fa-user-md"></i>
+	</div>
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+<div id="hexo-helper-live2d">
+  <canvas id="live2dcanvas" width="150" height="300"></canvas>
+</div>
+<style>
+  #live2dcanvas{
+    position: fixed;
+    width: 150px;
+    height: 300px;
+    opacity:0.7;
+    right: 0px;
+    z-index: 999;
+    pointer-events: none;
+    bottom: -20px;
+  }
+</style>
+<script type="text/javascript" src="/live2d/device.min.js"></script>
+<script type="text/javascript">
+const loadScript = function loadScript(c,b){var a=document.createElement("script");a.type="text/javascript";"undefined"!=typeof b&&(a.readyState?a.onreadystatechange=function(){if("loaded"==a.readyState||"complete"==a.readyState)a.onreadystatechange=null,b()}:a.onload=function(){b()});a.src=c;document.body.appendChild(a)};
+(function(){
+  if((typeof(device) != 'undefined') && (device.mobile())){
+    document.getElementById("live2dcanvas").style.width = '75px';
+    document.getElementById("live2dcanvas").style.height = '150px';
+  }else
+    if (typeof(device) === 'undefined') console.error('Cannot find current-device script.');
+  loadScript("/live2d/script.js", function(){loadlive2d("live2dcanvas", "/live2d/assets/hijiki.model.json", 0.5);});
+})();
+</script>
+
+</body>
+</html>

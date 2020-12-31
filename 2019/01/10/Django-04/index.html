@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Python," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="模型_02">
+<meta name="keywords" content="Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Django_04">
+<meta property="og:url" content="http://yoursite.com/2019/01/10/Django-04/index.html">
+<meta property="og:site_name" content="王较瘦工作站">
+<meta property="og:description" content="模型_02">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2020-01-06T16:35:50.647Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Django_04">
+<meta name="twitter:description" content="模型_02">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"remove","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/01/10/Django-04/"/>
+
+
+
+
+
+  <title>Django_04 | 王较瘦工作站</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">王较瘦工作站</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/10/Django-04/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="王较瘦">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="王较瘦工作站">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Django_04</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-10T00:34:43+08:00">
+                2019
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="模型-02"><a href="#模型-02" class="headerlink" title="模型_02"></a>模型_02</h1><a id="more"></a>
+<h3 id="一、关联关系"><a href="#一、关联关系" class="headerlink" title="一、关联关系"></a>一、关联关系</h3><h4 id="1、概述"><a href="#1、概述" class="headerlink" title="1、概述"></a>1、概述</h4><p>关联关系指的是数据表之间的数据是相互依赖和影响关系，表之间有<strong>从属关系</strong>，比如，有一个用户表，用户又有订单表，则用户表与订单表之间就存在从属关系。</p>
+<h4 id="2、关联关系的种类"><a href="#2、关联关系的种类" class="headerlink" title="2、关联关系的种类"></a>2、关联关系的种类</h4><ul>
+<li>一对一    一个人一本护照                   </li>
+<li>一对多    一个部门可以有多个员工  </li>
+<li>多对多    一个学生有多门课，一门课有多个学生    </li>
+</ul>
+<h4 id="3、Model中的关联关系"><a href="#3、Model中的关联关系" class="headerlink" title="3、Model中的关联关系"></a>3、Model中的关联关系</h4><h5 id="3-1-关系类型字段"><a href="#3-1-关系类型字段" class="headerlink" title="3.1 关系类型字段"></a>3.1 关系类型字段</h5><ul>
+<li>ForeignKey(to=关系对方的类或类名或‘self’，on_delete=级联选项)</li>
+<li>OneToOneField(to=关系对方的类或类名或‘self’，on_delete=级联选项)</li>
+<li>ManyToManyField(to=关系对方的类或类名或‘self’)</li>
+</ul>
+<h4 id="4、关联关系Model搭建"><a href="#4、关联关系Model搭建" class="headerlink" title="4、关联关系Model搭建"></a>4、关联关系Model搭建</h4><h5 id="4-1-一对多Model"><a href="#4-1-一对多Model" class="headerlink" title="4.1 一对多Model"></a>4.1 一对多Model</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>:*</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Category</span><span class="params">(models.Model)</span>:</span></span><br><span class="line">    title = models.CharField(max_length=<span class="number">20</span>)</span><br><span class="line">    note = models.CharField(max_length=<span class="number">20</span>)</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Meta</span>:</span></span><br><span class="line">        db_table=<span class="string">"t_category"</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Goods</span><span class="params">(models.Model)</span>:</span></span><br><span class="line">    title = models.CharField(max_length=<span class="number">20</span>,unique=<span class="keyword">True</span>)</span><br><span class="line">    price = models.FloatField()</span><br><span class="line">    cate = models.ForeignKey(to=Category,on_delete=models.CASCADE) <span class="comment">#关系属性 主表删除后，从表中使用主表中数据的也会跟随一起删除</span></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Meta</span>:</span></span><br><span class="line">        db_table = <span class="string">"t_goods"</span></span><br></pre></td></tr></table></figure>
+<h5 id="4-2-一对一Model"><a href="#4-2-一对一Model" class="headerlink" title="4.2 一对一Model"></a>4.2 一对一Model</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>:<span class="number">1</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Passport</span><span class="params">(models.Model)</span>:</span></span><br><span class="line">    note = models.CharField(max_length=<span class="number">20</span>)</span><br><span class="line">    person = models.OneToOneField(to=<span class="string">"Person"</span>,on_delete=models.CASCADE,null=<span class="keyword">True</span>) <span class="comment">#关系属性</span></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Meta</span>:</span></span><br><span class="line">        db_table=<span class="string">"t_passport"</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span><span class="params">(models.Model)</span>:</span></span><br><span class="line">    name = models.CharField(max_length=<span class="number">20</span>)</span><br><span class="line">    age = models.IntegerField()</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Meta</span>:</span></span><br><span class="line">        db_table=<span class="string">"t_person"</span></span><br><span class="line"> 注:不需要手动设置 person字段唯一，自动会设置为唯一</span><br></pre></td></tr></table></figure>
+<h5 id="4-3-多对多Model"><a href="#4-3-多对多Model" class="headerlink" title="4.3 多对多Model"></a>4.3 多对多Model</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">*:*</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span><span class="params">(models.Model)</span>:</span></span><br><span class="line">    name = models.CharField(max_length=<span class="number">20</span>)</span><br><span class="line">    age = models.IntegerField()</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Meta</span>:</span></span><br><span class="line">        db_table=<span class="string">"t_student"</span></span><br><span class="line">        </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Course</span><span class="params">(models.Model)</span>:</span></span><br><span class="line">    title = models.CharField(max_length=<span class="number">30</span>)</span><br><span class="line">    expire = models.SmallIntegerField()</span><br><span class="line">    stu = models.ManyToManyField(to=Student) <span class="comment">#关系属性</span></span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">Meta</span>:</span></span><br><span class="line">        db_table=<span class="string">"t_course"</span></span><br></pre></td></tr></table></figure>
+<h4 id="5、关联关系查询"><a href="#5、关联关系查询" class="headerlink" title="5、关联关系查询"></a>5、关联关系查询</h4><h5 id="5-1-一对一查询"><a href="#5-1-一对一查询" class="headerlink" title="5.1 一对一查询"></a>5.1 一对一查询</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1.只查 单方数据 （与单表数据查询一致）</span></span><br><span class="line"><span class="comment"># 只查人的信息</span></span><br><span class="line">ps = Person.objects.filter(name=<span class="string">'Tom'</span>).values()</span><br><span class="line">print(ps)</span><br><span class="line"><span class="comment"># 只查 护照的信息</span></span><br><span class="line">p1 = Passport.objects.all().values()</span><br><span class="line">print(p1)</span><br><span class="line">ps = Person.objects.filter(passport=<span class="string">'1'</span>).values()</span><br><span class="line">print(ps)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 2.通过一方查另一方数据 (先获取一方数据，再通过它查询另一方)</span></span><br><span class="line"><span class="comment"># 查询 名字为tom的护照信息</span></span><br><span class="line">p1 = Person.objects.get(name=<span class="string">'Tom'</span>)</span><br><span class="line">print(p1.passport.note)</span><br><span class="line"><span class="comment"># 查询护照为美国的人的信息</span></span><br><span class="line">ps = Passport.objects.get(note=<span class="string">'美国'</span>)</span><br><span class="line">print(ps.per_id, ps.per.name,ps.per.age)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 3.通过一方 查另一方 (查询条件是对方)</span></span><br><span class="line"><span class="comment"># 查询名字为tom的护照信息</span></span><br><span class="line">p1 = Passport.objects.filter(per__name=<span class="string">'Tom'</span>).values()</span><br><span class="line">print(p1)</span><br><span class="line"><span class="comment"># 查询护照为美国的人的信息</span></span><br><span class="line">p1 = Person.objects.filter(passport__note=<span class="string">'美国'</span>).values()</span><br><span class="line">print(p1)</span><br><span class="line">print(Person.objects.filter(passport__note=<span class="string">'美国'</span>))  <span class="comment"># QuerySet集合对象</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 4.保留双方数据 ()</span></span><br><span class="line"><span class="comment"># 查询名字为Tom的人信息 和 护照的信息</span></span><br><span class="line">p1 = Person.objects.filter(name=<span class="string">'Tom'</span>).values(<span class="string">'name'</span>,<span class="string">'age'</span>,<span class="string">'passport__note'</span>)</span><br><span class="line">print(p1)</span><br><span class="line">p1 = Passport.objects.filter(per__name=<span class="string">'Tom'</span>).values(<span class="string">'note'</span>,<span class="string">'per__name'</span>,<span class="string">'per__age'</span>,<span class="string">'per_id'</span>)</span><br><span class="line">print(p1)</span><br></pre></td></tr></table></figure>
+<h5 id="5-2-一对多查询"><a href="#5-2-一对多查询" class="headerlink" title="5.2 一对多查询"></a>5.2 一对多查询</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1对多关系   Category(1)：没有关系属性   Goods(*)：其中有关系属性cate</span></span><br><span class="line"><span class="comment"># 一对多 查询  category主表 goods从表</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 1.只查询一方数据</span></span><br><span class="line"><span class="comment"># 只查 主表</span></span><br><span class="line">c1 = Category.objects.filter(name=<span class="string">'服装'</span>).values()</span><br><span class="line">print(c1)</span><br><span class="line">g1 = Goods.objects.filter(price=<span class="number">5000</span>).values()</span><br><span class="line">print(g1)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 2.通过一方查询另一方 (先查询到一方数据,再通过它查询另一方)</span></span><br><span class="line"><span class="comment"># 查询服装类别为男装的 商品名称</span></span><br><span class="line">c1 = Category.objects.get(name=<span class="string">'服装'</span>)</span><br><span class="line">print(c1.goods_set) <span class="comment"># 查询也是一个集合</span></span><br><span class="line">print(c1.goods_set.all()) <span class="comment"># 查询也是一个集合</span></span><br><span class="line"><span class="comment"># 查询 商品沙发所属的类别</span></span><br><span class="line">g1 = Goods.objects.get(title=<span class="string">'沙发'</span>)</span><br><span class="line">print(g1.cate.name, g1.cate.note)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 3.通过一方查询另一方(查询条件是另一方)</span></span><br><span class="line"><span class="comment"># 查询 床 商品的 类别信息</span></span><br><span class="line">c1 = Category.objects.filter(goods__title=<span class="string">'床'</span>).values()</span><br><span class="line">print(c1)</span><br><span class="line"><span class="comment"># 查询分类为 家居 类别的 商品信息</span></span><br><span class="line">g1 = Goods.objects.filter(cate__name=<span class="string">'家居'</span>).values()</span><br><span class="line">print(g1)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 4.保留双方数据</span></span><br><span class="line"><span class="comment"># 查询商品名称为 电视 的分类信息 和 商品信息</span></span><br><span class="line">c1 = Category.objects.filter(goods__title=<span class="string">'电视'</span>).values(<span class="string">'name'</span>,<span class="string">'note'</span>,<span class="string">'goods__title'</span>,<span class="string">'goods__price'</span>)</span><br><span class="line">print(c1)</span><br><span class="line"><span class="comment"># 查询商品价格大于5000的商品的分类信息</span></span><br><span class="line">c1 = Category.objects.filter(goods__price__gt=<span class="number">5000</span>)</span><br><span class="line">print(c1)</span><br><span class="line">print(set(c1))</span><br><span class="line"></span><br><span class="line"><span class="comment">#注意在进行联合查询时，可能会由重复数据出现，解决：</span></span><br><span class="line">list(set(Category.objects.filter(goods__price__gt=<span class="number">200</span>)))</span><br></pre></td></tr></table></figure>
+<h5 id="5-3-多对多查询"><a href="#5-3-多对多查询" class="headerlink" title="5.3 多对多查询"></a>5.3 多对多查询</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 多对多关系   Course：有对方关系属性students   Student：没有对方关系属性 </span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 1.只查询一方</span></span><br><span class="line"><span class="comment"># 查询学生 linda 学生信息</span></span><br><span class="line">s1 = Student.objects.filter(name=<span class="string">'Linda'</span>).values()</span><br><span class="line">print(s1)</span><br><span class="line"><span class="comment"># 查询mysql课程信息</span></span><br><span class="line">c1 = Course.objects.filter(title__icontains=<span class="string">'MYSQL'</span>).values()</span><br><span class="line">print(c1)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 2.查询一方,通过它查询另一方</span></span><br><span class="line"><span class="comment"># 查询 学习mysql的学生信息</span></span><br><span class="line">c1 = Course.objects.get(title=<span class="string">'DJANGO'</span>)</span><br><span class="line">print(c1.stu.all())</span><br><span class="line"><span class="comment"># 查询 学生 linda 课程信息</span></span><br><span class="line">s1 = Student.objects.get(name=<span class="string">'Linda'</span>)</span><br><span class="line">print(s1.course_set.all())</span><br><span class="line">print(s1.course_set.values())</span><br><span class="line"></span><br><span class="line"><span class="comment"># 3.通过一方 查询 另一方 (查询条件为对方)</span></span><br><span class="line"><span class="comment"># 查询 学生 linda 课程信息</span></span><br><span class="line">c1 = Course.objects.filter(stu__name=<span class="string">'Linda'</span>).values()</span><br><span class="line">print(c1)</span><br><span class="line"><span class="comment"># 查询 学习mysql的学生信息</span></span><br><span class="line">s1 = Student.objects.filter(course__title=<span class="string">'PYTHON'</span>).values()</span><br><span class="line">print(s1)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 4.保留双方数据</span></span><br><span class="line"><span class="comment"># 查询学习django的学生信息 和 课程信息</span></span><br><span class="line">s1 = Student.objects.filter(course__title=<span class="string">'DJANGO'</span>).values(<span class="string">'name'</span>,<span class="string">'age'</span>,<span class="string">'course__title'</span>,<span class="string">'course__expire'</span>)</span><br><span class="line">print(s1)</span><br><span class="line"><span class="comment"># 查询jack学习的课程信息 和 学生信息</span></span><br><span class="line">c1 = Course.objects.filter(stu__name=<span class="string">'Jack'</span>).values(<span class="string">'title'</span>,<span class="string">'expire'</span>,<span class="string">'stu__age'</span>,<span class="string">'stu__name'</span>)</span><br><span class="line">print(c1)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#关联查询</span></span><br><span class="line">Student.objects.filter(course__title__contains=<span class="string">"h"</span>) <span class="comment">#标题中含有"h"的课程中的学生</span></span><br><span class="line">Course.objects.filter(stu__name=<span class="string">"zzz"</span>) <span class="comment">#姓名为zzz的学生参加的课程</span></span><br><span class="line">Course.objects.filter(stu__age__gt=<span class="number">18</span>) <span class="comment">#年龄大于18的学生参加的课程</span></span><br><span class="line">坑：不能查具体某个字段</span><br></pre></td></tr></table></figure>
+<h4 id="6、增加数据"><a href="#6、增加数据" class="headerlink" title="6、增加数据"></a>6、增加数据</h4><ul>
+<li>单独增加主表方(没有外键一方) 和单表增加无差异</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">c = Category(title=<span class="string">"男装"</span>,...)</span><br><span class="line">c.save()</span><br></pre></td></tr></table></figure>
+<ul>
+<li>为已存在的主表方附加从表数据（常见的增加情形）</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 方式一： 先取某一个类别，再通过该类别创建一个商品</span></span><br><span class="line">c = Category.objects.get(pk=<span class="number">1</span>)   <span class="comment"># 获取类别一对象</span></span><br><span class="line">c.goods_set.create(title = <span class="string">'abc'</span>,price=<span class="number">139.99</span>)   <span class="comment"># 不需要再save</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 方式二：先取某个类别，单独创建商品并关联类别</span></span><br><span class="line">c = Category.objects.get(pk=<span class="number">1</span>)</span><br><span class="line">g = Goods.objects.create(title=<span class="string">'abc'</span>,price=<span class="number">213</span>,cate=c) <span class="comment">#为商品的关系属性赋值</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 注意：如果是1：1，则只能使用方式二</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>同时添加主从数据</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">c = Category(title=<span class="string">"类别1"</span>,note=<span class="string">"xx"</span>)</span><br><span class="line">g = Goods(title=<span class="string">"zzz6"</span>,price=<span class="number">100</span>)</span><br><span class="line">g.save() <span class="comment">#此时，外键的值为null</span></span><br><span class="line">c.save()</span><br><span class="line">c.goods_set.add(g) <span class="comment">#会同步数据库,补充外键值</span></span><br><span class="line"></span><br><span class="line">或</span><br><span class="line"></span><br><span class="line">c = Category(title=<span class="string">"类别1"</span>,note=<span class="string">"xx"</span>)</span><br><span class="line">c.save()</span><br><span class="line">g = Goods(title=<span class="string">"zzz6"</span>,price=<span class="number">100</span>，cate9=c)</span><br><span class="line">g.save() <span class="comment">#此时，good是有外键值的</span></span><br><span class="line"><span class="comment">#注意如果是1:1只能用第二种</span></span><br></pre></td></tr></table></figure>
+<h4 id="7、删除数据"><a href="#7、删除数据" class="headerlink" title="7、删除数据"></a>7、删除数据</h4><ul>
+<li>单独删除从表方，和删除单表无差异</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Goods.objects.get(pk=<span class="number">1</span>).delete()</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>删除主表方，此时要看从表方的级联设置，会影响到从表方</p>
+<p>级联选项 : 在关联关系中删除主表时，对于从表可以有级联操作</p>
+<ul>
+<li>CASCADE  级联删除</li>
+<li>SET_NULL  外键置空(如果允许空的话)</li>
+<li>PROTECT   不允许直接删除主表</li>
+<li>SET_DEFAULT  需要为外键列设置默认值，默认值也应该是合法的外键值，可以在表中预留一个id</li>
+<li>SET   将外键设置为某个值，值应该是合法的外键值，可以在表中预留一个id</li>
+<li>DO_NOTHING   django什么也不做，由数据库决定是否合法</li>
+</ul>
+</li>
+</ul>
+<p><code>*:*  不支持级联删除</code>      </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#如果要删除主，所有从的外键置null  （重要）</span></span><br><span class="line">per = models.OneToOneField(to=Person,on_delete=models.SET_NULL,null=<span class="keyword">True</span>)</span><br><span class="line"><span class="comment">#如果要删除主，所有从一起删除</span></span><br><span class="line">per = models.OneToOneField(to=Person,on_delete=models.CASCADE,null=<span class="keyword">True</span>)</span><br><span class="line"><span class="comment">#如果要删除主，django什么也不做，有数据库决定是否合法</span></span><br><span class="line">per = models.OneToOneField(to=Person,on_delete=models.DO_NOTHING,null=<span class="keyword">True</span>)</span><br><span class="line"><span class="comment">#如果要删除主，所有从的外键置为6  （重要）</span></span><br><span class="line">cate = models.ForeignKey(to=<span class="string">"Category"</span>,on_delete=models.SET(<span class="number">6</span>))</span><br><span class="line"><span class="comment">#如果要删除主，所有从的外键置为默认值5  （重要）</span></span><br><span class="line">cate = models.ForeignKey(to=<span class="string">"Category"</span>,on_delete=models.SET_DEFALUT,default=<span class="string">"5"</span>)</span><br><span class="line"><span class="comment">#如果要删除主，如果有从数据存在，不允许删除</span></span><br><span class="line">cate = models.ForeignKey(to=<span class="string">"Category"</span>,on_delete=models.PROTECT)</span><br></pre></td></tr></table></figure>
+<h4 id="8、修改数据"><a href="#8、修改数据" class="headerlink" title="8、修改数据"></a>8、修改数据</h4><p>查询出数据，修改属性，然后save()即可</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">cs = Category.objects.all()</span><br><span class="line">c = cs[<span class="number">0</span>]</span><br><span class="line">c.title=<span class="string">"new_title"</span></span><br><span class="line">c.save()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 坑：</span></span><br><span class="line">Category.objects.all()[<span class="number">0</span>].title=<span class="string">"new_title"</span>  <span class="comment">#查询一次，并修改</span></span><br><span class="line">Category.objects.all()[<span class="number">0</span>].save() <span class="comment">#查询一次，并保存</span></span><br><span class="line"></span><br><span class="line">cate1=Category.objects.all()[<span class="number">0</span>]</span><br><span class="line">cate1.title=<span class="string">"new_title"</span></span><br><span class="line">cate1.save()</span><br></pre></td></tr></table></figure>
+<h3 id="二、懒加载Lazy-load"><a href="#二、懒加载Lazy-load" class="headerlink" title="二、懒加载Lazy-load"></a>二、懒加载Lazy-load</h3><p>QuerySet在查询数据时，是延迟执行，直到真正使用了数据，才发起查询</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">a = Person.objects.all() <span class="comment">#未查询</span></span><br><span class="line">b = Category.objects.all() <span class="comment">#未查询</span></span><br><span class="line">print(a) <span class="comment">#查询了a</span></span><br><span class="line"><span class="comment">#如上代码只执行了一次查询</span></span><br><span class="line"></span><br><span class="line">c = Category.objects.all() <span class="comment">#未查询</span></span><br><span class="line">print(c) <span class="comment">#查询c</span></span><br><span class="line">goods = c[<span class="number">0</span>].goods_set.all() <span class="comment">#未查询goods</span></span><br><span class="line">print(goods) <span class="comment">#查询了goods</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>测试方式</p>
+<p>找到mysql的安装目录下的my.ini文件，添加配置：</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># SERVER SECTION</span><br><span class="line">[mysqld]</span><br><span class="line">.....</span><br><span class="line">log = &quot;E:/mysql_log.log&quot; #设置日志文件，记录sql语句执行</span><br><span class="line">或</span><br><span class="line">general-log=1</span><br><span class="line">general_log_file=E:/mysql_log.log</span><br><span class="line"></span><br><span class="line">#需要重启Mysql服务   net stop/start mysql</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Python/" rel="tag"># Python</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/01/09/Django-03/" rel="next" title="Django_03">
+                <i class="fa fa-chevron-left"></i> Django_03
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/01/11/Django-05/" rel="prev" title="Django_05">
+                Django_05 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        ﻿<div class="copyright">&copy; 
+<span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">王较瘦</span>
+
+  
+  
+  
+</div>
+
+
+	<div class="powered-by"> <i class="fa fa-user-md"></i>
+	</div>
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+<div id="hexo-helper-live2d">
+  <canvas id="live2dcanvas" width="150" height="300"></canvas>
+</div>
+<style>
+  #live2dcanvas{
+    position: fixed;
+    width: 150px;
+    height: 300px;
+    opacity:0.7;
+    right: 0px;
+    z-index: 999;
+    pointer-events: none;
+    bottom: -20px;
+  }
+</style>
+<script type="text/javascript" src="/live2d/device.min.js"></script>
+<script type="text/javascript">
+const loadScript = function loadScript(c,b){var a=document.createElement("script");a.type="text/javascript";"undefined"!=typeof b&&(a.readyState?a.onreadystatechange=function(){if("loaded"==a.readyState||"complete"==a.readyState)a.onreadystatechange=null,b()}:a.onload=function(){b()});a.src=c;document.body.appendChild(a)};
+(function(){
+  if((typeof(device) != 'undefined') && (device.mobile())){
+    document.getElementById("live2dcanvas").style.width = '75px';
+    document.getElementById("live2dcanvas").style.height = '150px';
+  }else
+    if (typeof(device) === 'undefined') console.error('Cannot find current-device script.');
+  loadScript("/live2d/script.js", function(){loadlive2d("live2dcanvas", "/live2d/assets/hijiki.model.json", 0.5);});
+})();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Python," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="模板进阶">
+<meta name="keywords" content="Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Django_06">
+<meta property="og:url" content="http://yoursite.com/2019/01/12/Django-06/index.html">
+<meta property="og:site_name" content="王较瘦工作站">
+<meta property="og:description" content="模板进阶">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="d:/wang/Documents/pythhon笔记/Django-Day06.assets/1546053791592.png">
+<meta property="og:image" content="d:/wang/Documents/pythhon笔记/Django-Day06.assets/1546053869616.png">
+<meta property="og:updated_time" content="2020-01-06T16:54:28.073Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Django_06">
+<meta name="twitter:description" content="模板进阶">
+<meta name="twitter:image" content="d:/wang/Documents/pythhon笔记/Django-Day06.assets/1546053791592.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"remove","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/01/12/Django-06/"/>
+
+
+
+
+
+  <title>Django_06 | 王较瘦工作站</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">王较瘦工作站</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/12/Django-06/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="王较瘦">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="王较瘦工作站">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Django_06</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-12T00:38:19+08:00">
+                2019
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="模板进阶"><a href="#模板进阶" class="headerlink" title="模板进阶"></a>模板进阶</h1><a id="more"></a>
+<h3 id="一、模板概述"><a href="#一、模板概述" class="headerlink" title="一、模板概述"></a>一、模板概述</h3><h4 id="1、在view中硬编码HTML"><a href="#1、在view中硬编码HTML" class="headerlink" title="1、在view中硬编码HTML"></a>1、在view中硬编码HTML</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> django.shortcuts <span class="keyword">import</span> render,HttpResponse</span><br><span class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> datetime</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">index</span><span class="params">(request)</span>:</span></span><br><span class="line">    now = datetime.now()</span><br><span class="line">    html = <span class="string">"&lt;h1&gt;It is now %s.&lt;/h1&gt;"</span> % now</span><br><span class="line">    <span class="keyword">return</span> HttpResponse(html)</span><br></pre></td></tr></table></figure>
+<p>直接将HTML硬编码到视图（Python代码）里却并不是一个好主意。 </p>
+<ul>
+<li>对页面设计进行的任何改变都必须对 Python 代码进行相应的修改。 前端页面设计的修改往往比底层 Python 代码的修改要频繁得多，因此如果可以在不进行 Python 代码修改的情况下变更页面设计，那将会方便得多。</li>
+<li>Python 代码编写和 HTML 设计是两项不同的工作，大多数专业的网站开发环境都将他们分配给不同的人员（甚至不同部门）来完成。 设计者和HTML/CSS的编码人员不应该被要求去编辑Python的代码来完成他们的工作。</li>
+<li>程序员编写 Python代码和设计人员制作模板两项工作同时进行的效率是最高的，远胜于让一个人等待另一个人完成对某个既包含 Python又包含 HTML 的文件的编辑工作。</li>
+</ul>
+<p>基于这些原因，将<strong>页面的设计和Python的代码分离开会更干净简洁更容易维护</strong>。 我们可以使用 Django的模板系统 (Template System)来实现这种模式 。</p>
+<p><strong>模板是一个文本，用于分离文档的表现形式和内容</strong>。 模板定义了占位符以及各种用于规范文档该如何显示的各部分基本逻辑（模板标签）。 模板通常用于产生HTML 。</p>
+<h4 id="2、MTV模式"><a href="#2、MTV模式" class="headerlink" title="2、MTV模式"></a>2、MTV模式</h4><ul>
+<li><strong>模型（Models）：</strong>一个抽象层，用来构建和操作你的web应用中的数据，模型是你的数据的唯一的、权威的信息源。它包含你所储存数据的必要字段和行为。通常，每个模型对应数据库中唯一的一张表。 </li>
+<li><strong>模板（Templates）</strong>：模板层提供了设计友好的语法来展示信息给用户。使用模板方法可以动态地生成HTML。模板包含所需HTML 输出的静态部分，以及一些特殊的语法，描述如何将动态内容插入。 </li>
+<li><strong>视图（ Views）</strong>：用于封装负责处理用户请求及返回响应的逻辑。视图可以看作是前端与数据库的中间人，他会将前端想要的数据从数据库中读出来给前端。他也会将用户要想保存的数据写到数据库。 </li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># models.py   模型 -- 提供数据</span></span><br><span class="line"><span class="keyword">from</span> django.db <span class="keyword">import</span> models</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">User</span><span class="params">(models.Model)</span>:</span></span><br><span class="line">    name = models.CharField(max_length=<span class="number">30</span>,unique=<span class="keyword">True</span>)</span><br><span class="line">    password = models.CharField(max_length=<span class="number">18</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># views.py  视图 -- 逻辑处理</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">login_logic</span><span class="params">(request)</span>:</span></span><br><span class="line">    uname = request.POST.get(<span class="string">'name'</span>)</span><br><span class="line">    upassword = request.POST.get(<span class="string">'password'</span>)</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        user = User.objects.get(name=uname,password=upassword)</span><br><span class="line">        res = render(request,<span class="string">"account/loginSuccess.html"</span>,&#123;<span class="string">"user"</span>:user.name&#125;)</span><br><span class="line">        <span class="keyword">return</span> res</span><br><span class="line">    <span class="keyword">except</span> ObjectDoesNotExist:</span><br><span class="line">        <span class="keyword">return</span> HttpResponse(<span class="string">"失败"</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- loginSuccess.html 模板文件 显示内容--&gt;</span>   </span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Title<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    登录成功，欢迎&#123;&#123; user &#125;&#125;      <span class="comment">&lt;!-- 动态内容 --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="3、Django-模板查找机制"><a href="#3、Django-模板查找机制" class="headerlink" title="3、Django 模板查找机制"></a>3、<strong>Django 模板查找机制</strong></h4><p>模板的搜索根目录：<strong>Project下的templates目录 和 “已安装App”下的templates目录</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">TEMPLATES = [</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">'BACKEND'</span>: <span class="string">'django.template.backends.django.DjangoTemplates'</span>,</span><br><span class="line">        <span class="string">'DIRS'</span>: [os.path.join(BASE_DIR, <span class="string">'templates'</span>)]                 <span class="comment"># project下的templates目录</span></span><br><span class="line">        ,</span><br><span class="line">        <span class="string">'APP_DIRS'</span>: <span class="keyword">True</span>,                                             <span class="comment"># App下的temlates目录</span></span><br><span class="line">        ...</span><br><span class="line">    &#125;,</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+<p><strong>模板文件管理方式：</strong></p>
+<ul>
+<li>每个App自己持有，且有自己的独立目录防止多个App中的模板命名冲突。<ul>
+<li>具体操作：在app目录下创建templates目录，在templates目录下创建与app名相同的目录，再创建html文件。</li>
+<li>使用：<code>render(request,&quot;app名/xxx.html&quot;)</code></li>
+</ul>
+</li>
+<li>统一放在Projects根目录下的templates目录中，且有自己的独立目录防止多个App中的模板命名冲突 。<ul>
+<li>具体操作：在项目目录下的templates目录，创建与app名相同的目录，再创建html文件。</li>
+<li>使用：<code>render(request,&quot;app名/xxx.html&quot;)</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="二、模板语言DTL"><a href="#二、模板语言DTL" class="headerlink" title="二、模板语言DTL"></a>二、模板语言DTL</h3><h4 id="1、模板语言概述"><a href="#1、模板语言概述" class="headerlink" title="1、模板语言概述"></a>1、模板语言概述</h4><p>模板语言：Django内置有自己的模板语言(模板引擎)；第三方的模板语言比较流行的有jinja。</p>
+<p>Django官方表示，如果没有不得不换的原因，推荐内置模板语言<strong>Django Template Language(DTL</strong>)</p>
+<p>模板文件中，包含的动态渲染代码，使用的就是DTL</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    登录成功，欢迎&#123;&#123; user &#125;&#125;      <span class="comment">&lt;!-- 动态内容 --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="2、模板传值"><a href="#2、模板传值" class="headerlink" title="2、模板传值"></a>2、模板传值</h4><p>模板的正确使用，是衔接View，接收View传递的数据，将数据渲染在html网页中。</p>
+<p>值：View中通过Model层得到的数据。</p>
+<p>传递：由View 传递给 Template。</p>
+<p>目标：将数据渲染到一块静态内容(html)中 , 定制动态内容，作为请求的响应内容。</p>
+<ul>
+<li>传值示例：<code>{key:value,key2:value2}</code></li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># views.py</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">xx</span><span class="params">(request)</span>:</span></span><br><span class="line">    user = User.objects.get(pk=<span class="number">1</span>) <span class="comment">#获得数据</span></span><br><span class="line">    <span class="comment"># 跳转index.html,并向其传值：&#123;"user":user&#125;，index.html就可以使用如此数据</span></span><br><span class="line">	<span class="keyword">return</span> render(request,<span class="string">"index.html"</span>,&#123;<span class="string">"user"</span>:user&#125;)</span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">--</span> <span class="attr">index.html</span> <span class="attr">-</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span>  </span><br><span class="line">	...</span><br><span class="line">    hello,&#123;&#123;user&#125;&#125; <span class="comment">&lt;!-- 使用View传递来的数据 --&gt;</span></span><br><span class="line">    ...</span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>总结：通过view获取Model层的数据，并传递给模板文件，生成动态内容。</p>
+<h3 id="三、模板变量"><a href="#三、模板变量" class="headerlink" title="三、模板变量"></a>三、模板变量</h3><p>从本节开始，讲解DTL的详细语法。变量–在模板中如何去获取View传递来的数据。<code>{key:value,key2:value2}</code></p>
+<h4 id="1、简单数据"><a href="#1、简单数据" class="headerlink" title="1、简单数据"></a>1、简单数据</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- index.html --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    现在时间是：&#123;&#123;time&#125;&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># views.py</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">index</span><span class="params">(request)</span>:</span></span><br><span class="line">    now = datetime.now()</span><br><span class="line">    <span class="keyword">return</span> render(request,<span class="string">"template_app/index.html"</span>,&#123;<span class="string">"time"</span>:now&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="2、列表"><a href="#2、列表" class="headerlink" title="2、列表"></a>2、列表</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># views.py</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">index</span><span class="params">(request)</span>:</span></span><br><span class="line">	content = &#123;<span class="string">'list'</span>:[<span class="number">2</span>,<span class="number">4</span>,<span class="number">6</span>,<span class="number">8</span>,<span class="number">22</span>]&#125;</span><br><span class="line">    <span class="keyword">return</span> render(request,<span class="string">"template_app/index.html"</span>,content)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- index.html --&gt;</span><br><span class="line"></span><br><span class="line">&#123;&#123; list &#125;&#125;</span><br><span class="line">&#123;&#123; list<span class="number">.0</span> &#125;&#125;</span><br><span class="line">&#123;&#123; list<span class="number">.1</span> &#125;&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="3、dict字典"><a href="#3、dict字典" class="headerlink" title="3、dict字典"></a>3、dict字典</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># views.py</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">index</span><span class="params">(request)</span>:</span></span><br><span class="line">    content = &#123;<span class="string">'dic'</span>:&#123;<span class="string">'name'</span>:<span class="string">'lilei'</span>,<span class="string">'age'</span>:<span class="number">20</span>&#125;&#125;</span><br><span class="line">    <span class="keyword">return</span> render(request,<span class="string">"template_app/index.html"</span>,content)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- index.html --&gt;</span><br><span class="line"></span><br><span class="line">&#123;&#123; dic.name &#125;&#125;</span><br><span class="line">&#123;&#123; dic.age &#125;&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="2、Model对象"><a href="#2、Model对象" class="headerlink" title="2、Model对象"></a>2、Model对象</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># views.py</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">index</span><span class="params">(request)</span>:</span></span><br><span class="line">	content = &#123;<span class="string">"user1"</span>: User(name=<span class="string">'lilei'</span>,age=<span class="number">18</span>)&#125;</span><br><span class="line">	<span class="comment"># content = &#123;"user2":User.objects.get(pk=1)&#125;</span></span><br><span class="line">	<span class="comment"># content = &#123;"user3":User.objects.filter(pk=1)&#125;</span></span><br><span class="line">	<span class="keyword">return</span> render(request,<span class="string">"template_app/index.html"</span>,content)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- template index.html --&gt;</span><br><span class="line">&#123;&#123;user1.name&#125;&#125;             <span class="comment"># user1的name属性</span></span><br><span class="line">&#123;&#123;user1.age&#125;&#125;              <span class="comment"># user1的age属性</span></span><br><span class="line"></span><br><span class="line">&#123;&#123; user2.order_set.all<span class="number">.0</span> &#125;&#125;       <span class="comment"># id为1的用户的所有订单中的第一个订单</span></span><br><span class="line">&#123;&#123; user2.order_set.all<span class="number">.0</span>.price &#125;&#125;  <span class="comment"># 第一个订单的价格</span></span><br><span class="line"></span><br><span class="line">&#123;&#123; user3<span class="number">.0</span>.name &#125;&#125;      <span class="comment"># id=1的结果集中的第一个用户的名字</span></span><br></pre></td></tr></table></figure>
+<h4 id="5、无参方法（了解）"><a href="#5、无参方法（了解）" class="headerlink" title="5、无参方法（了解）"></a>5、无参方法（了解）</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">class User(models.Model):</span><br><span class="line">    name = models.CharField(max_length=20)</span><br><span class="line">    age = models.SmallIntegerField()</span><br><span class="line"></span><br><span class="line">    def func(self):</span><br><span class="line">        return &quot;测试函数&quot;</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">index</span><span class="params">(request)</span>:</span></span><br><span class="line">    content = &#123;<span class="string">"user2"</span>:User.objects.get(pk=<span class="number">1</span>)&#125;</span><br><span class="line">    <span class="keyword">return</span> render(request,<span class="string">"template_app/index.html"</span>,content)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- index.html --&gt;</span><br><span class="line"></span><br><span class="line">&#123;&#123; user2.func &#125;&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="四、模板标签"><a href="#四、模板标签" class="headerlink" title="四、模板标签"></a>四、模板标签</h3><h4 id="1、if-else-标签"><a href="#1、if-else-标签" class="headerlink" title="1、if/else 标签"></a>1、if/else 标签</h4><p>基本语法格式如下： </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;% <span class="keyword">if</span> condition %&#125;  </span><br><span class="line">     ... display ...</span><br><span class="line">&#123;% <span class="keyword">else</span> %&#125;</span><br><span class="line">     ...</span><br><span class="line">&#123;% endif %&#125;</span><br></pre></td></tr></table></figure>
+<p>或者： </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;% <span class="keyword">if</span> condition1 %&#125;</span><br><span class="line">   ... display <span class="number">1</span></span><br><span class="line">&#123;% <span class="keyword">elif</span> condiiton2 %&#125;</span><br><span class="line">   ... display <span class="number">2</span></span><br><span class="line">&#123;% <span class="keyword">else</span> %&#125;</span><br><span class="line">   ... display <span class="number">3</span></span><br><span class="line">&#123;% endif %&#125;</span><br></pre></td></tr></table></figure>
+<p>示例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 比较运算</span></span><br><span class="line"></span><br><span class="line">&#123;% <span class="keyword">if</span> list<span class="number">.1</span> &gt; <span class="number">3</span> %&#125;</span><br><span class="line">    &#123;&#123; list<span class="number">.1</span> &#125;&#125;</span><br><span class="line">&#123;% endif %&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 逻辑运算</span></span><br><span class="line"></span><br><span class="line">&#123;% <span class="keyword">if</span> <span class="number">1</span> <span class="keyword">or</span> <span class="number">2</span> %&#125; &#123;<span class="comment"># and or not 与或非 拼接多个条件 #&#125;</span></span><br><span class="line">    ...</span><br><span class="line">&#123;% <span class="keyword">elif</span> id &gt; <span class="number">100</span> <span class="keyword">and</span> <span class="keyword">not</span> name %&#125;</span><br><span class="line">    ....</span><br><span class="line">&#123;% <span class="keyword">elif</span> <span class="keyword">not</span> id &gt; <span class="number">100</span> <span class="keyword">and</span> <span class="keyword">not</span> name %&#125;</span><br><span class="line">    ....</span><br><span class="line">&#123;% endif %&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># in / not in  包含于/不包含于   用于字符串 和 序列 和 dict 和 QuerySet </span></span><br><span class="line"></span><br><span class="line">&#123;% <span class="keyword">if</span>  user.name <span class="keyword">not</span> <span class="keyword">in</span> <span class="string">"aazhjzzzaaa"</span> <span class="keyword">and</span> users<span class="number">.0</span> <span class="keyword">in</span> users%&#125;</span><br><span class="line">    name <span class="keyword">in</span> zhjasdf</span><br><span class="line">&#123;% endif %&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="2、for-标签"><a href="#2、for-标签" class="headerlink" title="2、for 标签"></a>2、for 标签</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% <span class="keyword">for</span> %&#125;</span><br></pre></td></tr></table></figure>
+<p>允许我们在一个序列上迭代。</p>
+<p>与Python的 for 语句的情形类似，循环语法是 for X in Y ，Y是要迭代的序列而X是在每一个特定的循环中使用的变量名称。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;% <span class="keyword">for</span> foo <span class="keyword">in</span> list %&#125;</span><br><span class="line">    &#123;&#123; foo &#125;&#125;,</span><br><span class="line">&#123;% endfor %&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>给标签增加一个 reversed 使得该列表被反向迭代： </li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;% <span class="keyword">for</span> foo <span class="keyword">in</span> list reversed %&#125;</span><br><span class="line">    &#123;&#123; foo &#125;&#125;,</span><br><span class="line">&#123;% endfor %&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>empty空标签</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;% <span class="keyword">for</span> foo <span class="keyword">in</span> list  %&#125;</span><br><span class="line">    &#123;&#123; foo &#125;&#125;,</span><br><span class="line">    &#123;% empty %&#125;</span><br><span class="line">    &lt;p&gt; 如果遍历的数据为[],或不存在，执行empty，输出这个段落&lt;/p&gt;</span><br><span class="line">&#123;% endfor %&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>遍历list of list</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">content = &#123;<span class="string">'list'</span>:[[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],[<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]]&#125;</span><br><span class="line"></span><br><span class="line">&#123;% <span class="keyword">for</span> f1,f2,f3 <span class="keyword">in</span> list  %&#125;</span><br><span class="line">    &#123;&#123; f1 &#125;&#125;,&#123;&#123; f2 &#125;&#125;,&#123;&#123; f3 &#125;&#125;</span><br><span class="line">&#123;% endfor %&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>遍历索引</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&#123;% <span class="keyword">for</span> ... %&#125;</span><br><span class="line">	...</span><br><span class="line">    &#123;&#123; forloop.counter0 &#125;&#125;  遍历索引,从<span class="number">0</span>开始</span><br><span class="line">    &#123;&#123; forloop.counter &#125;&#125;   遍历索引,从<span class="number">1</span>开始</span><br><span class="line">    &#123;&#123; forloop.revcounter &#125;&#125;  倒序索引</span><br><span class="line">    &#123;&#123; forloop.revcounter0 &#125;&#125;  <span class="comment"># 倒序索引，对应 counter0</span></span><br><span class="line">    &#123;&#123; forloop.first &#125;&#125;  <span class="comment">#是否为第一次面试</span></span><br><span class="line">    &#123;&#123; forloop.last &#125;&#125;  <span class="comment"># 是否为最后一次遍历</span></span><br><span class="line">    ...</span><br><span class="line">&#123;% endfor %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% <span class="keyword">for</span> ... %&#125;</span><br><span class="line">   ...</span><br><span class="line">   &#123;% <span class="keyword">if</span>  forloop.first %&#125;</span><br><span class="line">		第一次遍历</span><br><span class="line">   &#123;% <span class="keyword">else</span> %&#125;</span><br><span class="line">   ...</span><br><span class="line">&#123;% endfor %&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="五、过滤器"><a href="#五、过滤器" class="headerlink" title="五、过滤器"></a>五、过滤器</h3><p>获取值的过程中，可以对值进行处理，通过  <strong>过滤器</strong> 完成。</p>
+<p>注意：| 左右两侧不允许有空格。坑</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123; xx &#125;&#125; 正常取值   </span><br><span class="line"></span><br><span class="line">&#123;&#123; xx|过滤器 &#125;&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">&#123;&#123;name|length&#125;&#125;  &#123;<span class="comment">#获取长度#&#125;</span></span><br><span class="line">&#123;&#123;list|length&#125;&#125;  </span><br><span class="line">&#123;&#123;dict|length&#125;&#125;</span><br><span class="line">&#123;&#123;queryset|length&#125;&#125;</span><br><span class="line">&#123;&#123;name|length_is:<span class="string">'4'</span>&#125;&#125;   <span class="comment"># 判断 长度是否为4  True/False</span></span><br><span class="line"></span><br><span class="line">&#123;&#123;name|lower&#125;&#125;  &#123;<span class="comment"># 所有字符变小写 #&#125; （了解）</span></span><br><span class="line">&#123;&#123;name|upper&#125;&#125;  （了解）</span><br><span class="line">    </span><br><span class="line">&#123;&#123;name|default:<span class="string">'lilei'</span>&#125;&#125; &#123;<span class="comment"># 没值、False、None、""、0 #&#125;（了解）游客，不存在</span></span><br><span class="line"></span><br><span class="line">&#123;<span class="comment"># 加减乘除 #&#125;</span></span><br><span class="line">&#123;&#123; list115<span class="number">.1</span>|add:<span class="string">'1'</span> &#125;&#125; &#123;<span class="comment"># 加法 #&#125;</span></span><br><span class="line">&#123;&#123; list115<span class="number">.1</span>|add:<span class="string">'-1'</span> &#125;&#125; &#123;<span class="comment"># 减法 #&#125;</span></span><br><span class="line">&#123;&#123; list115<span class="number">.1</span>|divisibleby:<span class="string">'2'</span> &#125;&#125;&lt;br/&gt; &#123;<span class="comment"># % 求模运算 #&#125;</span></span><br><span class="line">&#123;% widthratio <span class="number">5</span> <span class="number">10</span> <span class="number">100</span> %&#125;  &#123;<span class="comment"># a/b*c   5/10*100 百分比#&#125;  </span></span><br><span class="line">&#123;% widthratio list115<span class="number">.1</span>   <span class="number">1</span>   list115<span class="number">.2</span> %&#125;  &#123;<span class="comment">#  乘法运算 #&#125;</span></span><br><span class="line">&#123;% widthratio list115<span class="number">.1</span>   list115<span class="number">.2</span>  <span class="number">1</span> %&#125;  &#123;<span class="comment">#  除法运算 #&#125;</span></span><br><span class="line"></span><br><span class="line">&#123;<span class="comment">#技巧#&#125;</span></span><br><span class="line">&#123;% widthratio a b c <span class="keyword">as</span> result%&#125;</span><br><span class="line">&#123;% <span class="keyword">if</span> result == <span class="string">"50"</span> %&#125;</span><br><span class="line">	....</span><br><span class="line">&#123;% endif %&#125;</span><br><span class="line">    </span><br><span class="line">&#123;&#123;birth|date:<span class="string">'Y/m/d H:i:s'</span>&#125;&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;% <span class="keyword">if</span>  user.birth|date:<span class="string">'Y/m/d H:i:s'</span>|length &gt; <span class="number">10</span>%&#125;</span><br><span class="line">    &lt;p&gt;length gt 10&lt;/p&gt;</span><br><span class="line">&#123;% endif %&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="六、模板继承"><a href="#六、模板继承" class="headerlink" title="六、模板继承"></a>六、模板继承</h3><p>项目的多个页面中会有重复的部分，会导致在多个模板文件中会有重复的代码，文本。</p>
+<p>此时，会造成代码冗余，不利于项目的管理</p>
+<p>模板继承，可以很好的解决这种问题</p>
+<p>语法：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- base.html 包含的是子模板中共有的内容 --&gt;</span>  </span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Hello World!<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Hello World!<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">    &#123;% block mainbody %&#125;</span><br><span class="line">       </span><br><span class="line">    &#123;% endblock %&#125;</span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="D:/wang/Documents/pythhon笔记/Django-Day06.assets/1546053791592.png" alt="1546053791592"></p>
+<p>以上代码中，名为mainbody的block标签是可以被继承者们替换掉的部分。 </p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- sub1.html 子模板文件--&gt;</span></span><br><span class="line"></span><br><span class="line">&#123;% extends "base.html" %&#125;   </span><br><span class="line"></span><br><span class="line">&#123;% block mainbody %&#125;</span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span>继承了 base.html 文件<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">&#123;% endblock %&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="D:/wang/Documents/pythhon笔记/Django-Day06.assets/1546053869616.png" alt="1546053869616"></p>
+<p>子模板中只能定义父模板中 <code>block块</code>中的内容，其他内容都是继承自父模板</p>
+<p>则实现了子模板中不用定义父模板中已经定义的内容，进而消除重复。</p>
+<p><strong>注意：</strong>在子模板中，只有block块内的内容，才是有效的内容，block块外的内容，不被解析，视为无效。</p>
+<h3 id="七、静态资源"><a href="#七、静态资源" class="headerlink" title="七、静态资源"></a>七、静态资源</h3><h4 id="1、静态资源概述"><a href="#1、静态资源概述" class="headerlink" title="1、静态资源概述"></a>1、静态资源概述</h4><p>除了HTML文件外，WEB应用一般需要提供一些其它的必要文件，比如图片文件、JavaScript脚本和CSS样式表等等，用来为用户呈现出一个完整的网页。</p>
+<p>在Django中，我们将这些文件统称为“静态文件”，因为这些文件的内容基本是固定不变的，不需要动态生成。 </p>
+<h4 id="2、使用静态资源"><a href="#2、使用静态资源" class="headerlink" title="2、使用静态资源"></a>2、使用静态资源</h4><p>首先在你的app目录中创建一个<code>static</code>目录。Django将在那里查找静态文件，这与Django在/templates/中寻找对应的模板文件的方式是一致的。 </p>
+<p><strong>目录结构如下：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">APP</span><br><span class="line">	-- static</span><br><span class="line">		-- (aaa.css，bbb.jpg，ccc.js)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">settings.py中</span><br><span class="line"></span><br><span class="line">STATIC_URL = <span class="string">'/static/'</span>   <span class="comment">#ip:port/static/</span></span><br></pre></td></tr></table></figure>
+<p>访问：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Django在查找静态资源时，是查找 "已安装"的APP中的static目录</span></span><br><span class="line">&lt;link rel=<span class="string">"stylesheet"</span> href=<span class="string">"/static/aaa.css"</span>&gt; <span class="comment"># 访问aaa.css文件</span></span><br><span class="line">&lt;img src=<span class="string">"/static/bbb.jpg"</span> width=<span class="string">"200px"</span>/&gt; <span class="comment"># 访问bbb.jpg文件</span></span><br><span class="line">&lt;script src="/static/ccc.js"&gt;&lt;/script&gt;  # 访问ccc.js文件</span><br></pre></td></tr></table></figure>
+<p><strong>注意：</strong> 如果多个APP下有同名文件，会如何？</p>
+<p>​        <strong>静态资源的查找是短路查找，找到就停止。所以后安装的app中的静态资源，无法被访问</strong></p>
+<p><strong>解决方案：每个APP的静态资源都有自己的独立目录即可</strong></p>
+<p><strong>注意：在有了独立目录后，在访问静态资源是，路径上也要加上独立目录名</strong> </p>
+<p>除默认的静态文件根目录外，</p>
+<p>也可以，单独创建一个static目录，存放所有app的静态资源，增加几个静态文件的根目录：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">settings.py</span><br><span class="line">STATICFILES_DIRS = [ os.path.join(BASE_DIR, <span class="string">'static'</span>),</span><br><span class="line">                     <span class="string">"E:\\static"</span>]</span><br></pre></td></tr></table></figure>
+<p>Django查找静态资源的目录：</p>
+<p>（1）默认在每个app的static目录下去查找</p>
+<p>（2）可以再额外添加一些静态资源的查找目录 在setting.py文件中 加STATICFILES_DIRS = []</p>
+<p>访问时：  加static_url指定的访问前缀   /static/img/a.jpg</p>
+<p>修改硬编码URL：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;% load static %&#125;   HTML文件最上面</span><br><span class="line"></span><br><span class="line">&lt;img src=&quot;&#123;% static &quot;/img/a.jpg&quot; %&#125;&quot;&gt;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Python/" rel="tag"># Python</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/01/11/Django-05/" rel="next" title="Django_05">
+                <i class="fa fa-chevron-left"></i> Django_05
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/01/14/Django-07/" rel="prev" title="Django_07">
+                Django_07 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        ﻿<div class="copyright">&copy; 
+<span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">王较瘦</span>
+
+  
+  
+  
+</div>
+
+
+	<div class="powered-by"> <i class="fa fa-user-md"></i>
+	</div>
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+<div id="hexo-helper-live2d">
+  <canvas id="live2dcanvas" width="150" height="300"></canvas>
+</div>
+<style>
+  #live2dcanvas{
+    position: fixed;
+    width: 150px;
+    height: 300px;
+    opacity:0.7;
+    right: 0px;
+    z-index: 999;
+    pointer-events: none;
+    bottom: -20px;
+  }
+</style>
+<script type="text/javascript" src="/live2d/device.min.js"></script>
+<script type="text/javascript">
+const loadScript = function loadScript(c,b){var a=document.createElement("script");a.type="text/javascript";"undefined"!=typeof b&&(a.readyState?a.onreadystatechange=function(){if("loaded"==a.readyState||"complete"==a.readyState)a.onreadystatechange=null,b()}:a.onload=function(){b()});a.src=c;document.body.appendChild(a)};
+(function(){
+  if((typeof(device) != 'undefined') && (device.mobile())){
+    document.getElementById("live2dcanvas").style.width = '75px';
+    document.getElementById("live2dcanvas").style.height = '150px';
+  }else
+    if (typeof(device) === 'undefined') console.error('Cannot find current-device script.');
+  loadScript("/live2d/script.js", function(){loadlive2d("live2dcanvas", "/live2d/assets/hijiki.model.json", 0.5);});
+})();
+</script>
+
+</body>
+</html>
